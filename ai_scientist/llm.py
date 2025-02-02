@@ -21,6 +21,7 @@ AVAILABLE_LLMS = [
     "o1-preview-2024-09-12",
     "o1-mini-2024-09-12",
     "o1-2024-12-17",
+    "o3-mini-2025-01-31",
     # OpenRouter models
     "llama3.1-405b",
     # Anthropic Claude models via Amazon Bedrock
