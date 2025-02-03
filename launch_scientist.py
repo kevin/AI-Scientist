@@ -18,8 +18,6 @@ from ai_scientist.llm import create_client, AVAILABLE_LLMS
 from ai_scientist.perform_experiments import perform_experiments
 from ai_scientist.perform_review import perform_review, load_paper, perform_improvement
 from ai_scientist.perform_writeup import perform_writeup, generate_latex
-import ai_scientist.generate_ideas_no_code
-import ai_scientist.perform_writeup_no_code
 
 NUM_REFLECTIONS = 3
 
@@ -90,11 +88,6 @@ def parse_arguments():
         default="semanticscholar",
         choices=["semanticscholar", "openalex"],
         help="Scholar engine to use.",
-    )
-    parser.add_argument(
-        "--no-code",
-        action="store_true",
-        help="For templates that do not require code.",
     )
     return parser.parse_args()
 
@@ -252,10 +245,7 @@ def do_idea(
                 edit_format="diff",
             )
             try:
-                if args.no_code:
-                    ai_scientist.perform_writeup_no_code.perform_writeup(idea, folder_name, coder, client, client_model, engine=args.engine)
-                else:
-                    perform_writeup(idea, folder_name, coder, client, client_model, engine=args.engine)
+                perform_writeup(idea, folder_name, coder, client, client_model, engine=args.engine)
             except Exception as e:
                 print(f"Failed to perform writeup: {e}")
                 return False
@@ -291,14 +281,9 @@ def do_idea(
             print(f"*Starting Improvement*")
             try:
                 perform_improvement(review, coder)
-                if args.no_code:
-                    ai_scientist.perform_writeup_no_code.generate_latex(
-                        coder, folder_name, f"{folder_name}/{idea['Name']}_improved.pdf"
-                    )
-                else:
-                    generate_latex(
-                        coder, folder_name, f"{folder_name}/{idea['Name']}_improved.pdf"
-                    )
+                generate_latex(
+                    coder, folder_name, f"{folder_name}/{idea['Name']}_improved.pdf"
+                )
                 paper_text = load_paper(f"{folder_name}/{idea['Name']}_improved.pdf")
                 review = perform_review(
                     paper_text,
@@ -349,24 +334,14 @@ if __name__ == "__main__":
 
     base_dir = osp.join("templates", args.experiment)
     results_dir = osp.join("results", args.experiment)
-    if args.no_code:
-        ideas = ai_scientist.generate_ideas_no_code.generate_ideas(
-            base_dir,
-            client=client,
-            model=client_model,
-            skip_generation=args.skip_idea_generation,
-            max_num_generations=args.num_ideas,
-            num_reflections=NUM_REFLECTIONS,
-        )
-    else:
-        ideas = generate_ideas(
-            base_dir,
-            client=client,
-            model=client_model,
-            skip_generation=args.skip_idea_generation,
-            max_num_generations=args.num_ideas,
-            num_reflections=NUM_REFLECTIONS,
-        )
+    ideas = generate_ideas(
+        base_dir,
+        client=client,
+        model=client_model,
+        skip_generation=args.skip_idea_generation,
+        max_num_generations=args.num_ideas,
+        num_reflections=NUM_REFLECTIONS,
+    )
     if not args.skip_novelty_check:
         ideas = check_idea_novelty(
             ideas,
