@@ -1,3 +1,5 @@
+# for no code templates, we perform "investigations" rather than code experiments.
+
 import json
 import os.path as osp
 import shutil
