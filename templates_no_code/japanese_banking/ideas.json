@@ -1,0 +1,38 @@
+[
+    {
+        "Name": "aging_population_banking",
+        "Title": "The Impact of Japan\u00e2\u20ac\u2122s Aging Population on Banking Stability and Financial Inclusion",
+        "Experiment": "Analyze demographic and financial data from Japanese banks to assess changes in deposit patterns, loan demand, and financial service utilization among elderly customers. Investigate policy responses, such as digital banking adaptation and financial literacy programs, to mitigate risks associated with an aging customer base.",
+        "Interestingness": 7,
+        "Feasibility": 6,
+        "Novelty": 5,
+        "novel": true
+    },
+    {
+        "Name": "digital_yen_policy",
+        "Title": "The Case for a Digital Yen: Evaluating the Risks and Benefits for Japan\u00e2\u20ac\u2122s Banking Sector",
+        "Experiment": "Assess the potential effects of a central bank digital currency (CBDC) on Japan\u00e2\u20ac\u2122s banking system by reviewing global case studies, conducting financial simulations, and analyzing monetary policy implications. Investigate whether a digital yen could alleviate financial stagnation, improve transaction efficiency, and enhance economic resilience.",
+        "Interestingness": 8,
+        "Feasibility": 5,
+        "Novelty": 6,
+        "novel": true
+    },
+    {
+        "Name": "fintech_integration_in_banking",
+        "Title": "Bridging the Gap: Integrating Fintech Innovations into Japan\u2019s Traditional Banking Sector",
+        "Description": "This research will explore the current state of fintech utilization in Japanese banks, focusing on innovations like blockchain, AI, and mobile banking apps. It aims to identify barriers to adoption and propose strategies for effective integration, including regulatory frameworks and partnership models. The study will analyze data on fintech application usage, conduct interviews with industry experts, and review case studies of successful fintech integration in other countries. Potential outcomes include the enhancement of customer experience, increased operational efficiency, and strengthened cybersecurity measures.",
+        "Interestingness": 9,
+        "Feasibility": 7,
+        "Novelty": 7,
+        "novel": true
+    },
+    {
+        "Name": "cybersecurity_in_japan_banking",
+        "Title": "Strengthening Cybersecurity in Japan\u2019s Banking Sector: Leveraging AI and Technological Innovations",
+        "Description": "This research investigates the current state of cybersecurity in Japan's banking sector, focusing on the integration of AI and machine learning to enhance threat detection and response capabilities. It will analyze existing cybersecurity frameworks, review global best practices, and evaluate the effectiveness of AI-based tools through case studies and simulations. The study will also explore potential collaborations with technology firms and regulatory bodies to ensure comprehensive and scalable cybersecurity strategies. The aim is to identify vulnerabilities and propose advanced solutions to fortify the cybersecurity defenses of Japanese banks, thereby improving financial stability and customer trust.",
+        "Interestingness": 8,
+        "Feasibility": 7,
+        "Novelty": 7,
+        "novel": true
+    }
+]

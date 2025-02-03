@@ -332,7 +332,7 @@ if __name__ == "__main__":
     # Create client
     client, client_model = create_client(args.model)
 
-    base_dir = osp.join("templates", args.experiment)
+    base_dir = osp.join("templates_no_code", args.experiment)
     results_dir = osp.join("results", args.experiment)
     ideas = generate_ideas(
         base_dir,
