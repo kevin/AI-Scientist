@@ -419,7 +419,6 @@ Be sure to first name the file and use *SEARCH/REPLACE* blocks to perform these 
     )
     for section in [
         "Introduction",
-        "Related Work",
         "Method",
         "Analysis & Findings",
         "Discussion",
