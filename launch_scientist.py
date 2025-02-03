@@ -18,6 +18,7 @@ from ai_scientist.llm import create_client, AVAILABLE_LLMS
 from ai_scientist.perform_experiments import perform_experiments
 from ai_scientist.perform_review import perform_review, load_paper, perform_improvement
 from ai_scientist.perform_writeup import perform_writeup, generate_latex
+import ai_scientist.generate_ideas_no_code
 import ai_scientist.perform_writeup_no_code
 
 NUM_REFLECTIONS = 3
@@ -348,14 +349,24 @@ if __name__ == "__main__":
 
     base_dir = osp.join("templates", args.experiment)
     results_dir = osp.join("results", args.experiment)
-    ideas = generate_ideas(
-        base_dir,
-        client=client,
-        model=client_model,
-        skip_generation=args.skip_idea_generation,
-        max_num_generations=args.num_ideas,
-        num_reflections=NUM_REFLECTIONS,
-    )
+    if args.no_code:
+        ideas = ai_scientist.generate_ideas_no_code.generate_ideas(
+            base_dir,
+            client=client,
+            model=client_model,
+            skip_generation=args.skip_idea_generation,
+            max_num_generations=args.num_ideas,
+            num_reflections=NUM_REFLECTIONS,
+        )
+    else:
+        ideas = generate_ideas(
+            base_dir,
+            client=client,
+            model=client_model,
+            skip_generation=args.skip_idea_generation,
+            max_num_generations=args.num_ideas,
+            num_reflections=NUM_REFLECTIONS,
+        )
     if not args.skip_novelty_check:
         ideas = check_idea_novelty(
             ideas,
