@@ -322,7 +322,7 @@ def create_client(model):
     elif 'gpt' in model:
         print(f"Using OpenAI API with model {model}.")
         return openai.OpenAI(), model
-    elif model in ["o1-preview-2024-09-12", "o1-mini-2024-09-12"]:
+    elif model in ["o1-preview-2024-09-12", "o1-mini-2024-09-12", "o3-mini-2025-01-31"]:
         print(f"Using OpenAI API with model {model}.")
         return openai.OpenAI(), model
     elif model in ["deepseek-chat", "deepseek-reasoner"]:
