@@ -36,6 +36,7 @@ RUN pip install --no-cache-dir \
     aider-chat==0.73.0 \
     backoff==2.2.1 \
     openai==1.60.2 \
+    google-generativeai==0.8.4 \
     fsspec==2024.12.0 \
     matplotlib==3.9.2 \
     pypdf==4.3.1 \
