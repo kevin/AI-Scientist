@@ -10,17 +10,17 @@ WORKDIR /app
 # Install system dependencies including texlive-full
 RUN apt-get update && apt-get install -y --no-install-recommends \
     wget=1.21-1+deb11u1 \
-    git=1:2.30.2-1+deb11u2 \
+    git=1:2.30.2-1+deb11u4 \
     build-essential=12.9 \
-    libssl-dev=1.1.1w-0+deb11u1 \
+    libssl-dev=1.1.1w-0+deb11u2 \
     zlib1g-dev=1:1.2.11.dfsg-2+deb11u2 \
     libbz2-dev=1.0.8-4 \
     libreadline-dev=8.1-1 \
-    libsqlite3-dev=3.34.1-3 \
+    libsqlite3-dev=3.34.1-3+deb11u1 \
     libncursesw5-dev=6.2+20201114-2+deb11u2 \
     xz-utils=5.2.5-2.1~deb11u1 \
     tk-dev=8.6.11+1 \
-    libxml2-dev=2.9.10+dfsg-6.7+deb11u4 \
+    libxml2-dev=2.9.10+dfsg-6.7+deb11u5 \
     libxmlsec1-dev=1.2.31-1 \
     libffi-dev=3.3-6 \
     liblzma-dev=5.2.5-2.1~deb11u1 \
@@ -33,19 +33,20 @@ RUN pip install --no-cache-dir --upgrade pip==24.2
 # Install Python packages
 RUN pip install --no-cache-dir \
     anthropic==0.34.0 \
-    aider-chat==0.50.1 \
+    aider-chat==0.73.0 \
     backoff==2.2.1 \
-    openai==1.40.6 \
+    openai==1.60.2 \
+    fsspec==2024.12.0 \
     matplotlib==3.9.2 \
     pypdf==4.3.1 \
     pymupdf4llm==0.0.10 \
-    torch==2.4.0 \
+    torch==2.6.0 \
     numpy==1.26.4 \
     transformers==4.44.0 \
-    datasets==2.21.0 \
-    tiktoken==0.7.0 \
+    datasets==2.14.4 \
+    tiktoken==0.8.0 \
     wandb==0.17.7 \
-    tqdm==4.66.5 \
+    tqdm==4.67.1 \
     scikit-learn==1.5.1 \
     einops==0.8.0
 
@@ -57,25 +58,26 @@ RUN git checkout 8b0d9485423f74e5eb199324cf362765596538d3 \
 
 # Clone the AI-Scientist repository
 WORKDIR /app
-RUN git clone https://github.com/SakanaAI/AI-Scientist.git
+# RUN git clone https://github.com/SakanaAI/AI-Scientist.git
+RUN git clone https://github.com/kevin/AI-Scientist.git
 
 # Set working directory to AI-Scientist
 WORKDIR /app/AI-Scientist
 
-# Prepare NanoGPT data
-RUN python data/enwik8/prepare.py && \
-    python data/shakespeare_char/prepare.py && \
-    python data/text8/prepare.py
+# # Prepare NanoGPT data
+# RUN python data/enwik8/prepare.py && \
+#     python data/shakespeare_char/prepare.py && \
+#     python data/text8/prepare.py
 
-# Set up baseline runs
-RUN for dir in templates/*/; do \
-    if [ -f "${dir}experiment.py" ]; then \
-        cd "${dir}" || continue; \
-        python experiment.py --out_dir run_0 && \
-        python plot.py; \
-        cd /app/AI-Scientist || exit; \
-    fi \
-done
+# # Set up baseline runs
+# RUN for dir in templates/*/; do \
+#     if [ -f "${dir}experiment.py" ]; then \
+#         cd "${dir}" || continue; \
+#         python experiment.py --out_dir run_0 && \
+#         python plot.py; \
+#         cd /app/AI-Scientist || exit; \
+#     fi \
+# done
 
 # Create entrypoint script
 RUN printf '#!/bin/bash\n\
