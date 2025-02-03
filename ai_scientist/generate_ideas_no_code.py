@@ -20,7 +20,7 @@ Here are the ideas that you have already generated:
 '''
 
 Come up with the next impactful and creative idea for research directions you can feasibly investigate.
-Note that you will not have access to any additional resources or datasets.
+Your investigation will consist of searching for existing data and/or gathering it with a study of your own.
 
 Respond in the following format:
 
@@ -32,12 +32,12 @@ NEW IDEA JSON:
 <JSON>
 ```
 
-In <THOUGHT>, first briefly discuss your intuitions and motivations for the idea. Detail your high-level plan, necessary design choices and ideal outcomes of the experiments. Justify how the idea is different from the existing ones.
+In <THOUGHT>, first briefly discuss your intuitions and motivations for the idea. Detail your high-level plan, necessary design choices and ideal outcomes of the research. Justify how the idea is different from the existing ones.
 
 In <JSON>, provide the new idea in JSON format with the following fields:
 - "Name": A shortened descriptor of the idea. Lowercase, no spaces, underscores allowed.
 - "Title": A title for the idea, will be used for the report writing.
-- "Description": An outline of the topic of investigation. E.g., brief intro, what information is needed, potential arguments, etc.
+- "Description": An outline of the topic of investigation. E.g., brief intro, what information is needed, potential arguments after investigating, etc.
 - "Interestingness": A rating from 1 to 10 (lowest to highest).
 - "Feasibility": A rating from 1 to 10 (lowest to highest).
 - "Novelty": A rating from 1 to 10 (lowest to highest).
