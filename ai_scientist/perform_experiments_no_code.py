@@ -8,7 +8,8 @@ import sys
 from subprocess import TimeoutExpired
 
 MAX_ITERS = 4
-MAX_RUNS = 5
+# MAX_RUNS = 5
+MAX_QUERIES = 10
 MAX_STDERR_OUTPUT = 1500
 
 coder_prompt = """Your goal is to implement the following idea: {title}.

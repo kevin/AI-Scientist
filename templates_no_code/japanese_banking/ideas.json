@@ -18,18 +18,18 @@
         "novel": true
     },
     {
-        "Name": "fintech_integration_in_banking",
-        "Title": "Bridging the Gap: Integrating Fintech Innovations into Japan\u2019s Traditional Banking Sector",
-        "Description": "This research will explore the current state of fintech utilization in Japanese banks, focusing on innovations like blockchain, AI, and mobile banking apps. It aims to identify barriers to adoption and propose strategies for effective integration, including regulatory frameworks and partnership models. The study will analyze data on fintech application usage, conduct interviews with industry experts, and review case studies of successful fintech integration in other countries. Potential outcomes include the enhancement of customer experience, increased operational efficiency, and strengthened cybersecurity measures.",
-        "Interestingness": 9,
-        "Feasibility": 7,
+        "Name": "ai_fraud_detection",
+        "Title": "Leveraging AI for Fraud Detection in Japan\u2019s Banking Sector",
+        "Description": "This research focuses on the role of artificial intelligence in fraud detection within Japanese banks. By analyzing case studies and existing data on AI-based fraud detection systems, the study aims to identify successful implementations and areas for improvement. The objective is to propose effective frameworks that can enhance security and operational efficiency, addressing the increasing risks of financial fraud in the digital age.",
+        "Interestingness": 8,
+        "Feasibility": 8,
         "Novelty": 7,
         "novel": true
     },
     {
-        "Name": "cybersecurity_in_japan_banking",
-        "Title": "Strengthening Cybersecurity in Japan\u2019s Banking Sector: Leveraging AI and Technological Innovations",
-        "Description": "This research investigates the current state of cybersecurity in Japan's banking sector, focusing on the integration of AI and machine learning to enhance threat detection and response capabilities. It will analyze existing cybersecurity frameworks, review global best practices, and evaluate the effectiveness of AI-based tools through case studies and simulations. The study will also explore potential collaborations with technology firms and regulatory bodies to ensure comprehensive and scalable cybersecurity strategies. The aim is to identify vulnerabilities and propose advanced solutions to fortify the cybersecurity defenses of Japanese banks, thereby improving financial stability and customer trust.",
+        "Name": "green_banking_initiatives",
+        "Title": "Green Banking in Japan: Evaluating Current Initiatives and Future Opportunities",
+        "Description": "This research will assess the current state of green banking initiatives in Japan, focusing on the integration of environmental sustainability into banking practices. It will analyze existing data on green loans, sustainable investment practices, and policy frameworks. The study aims to identify gaps in current practices and propose strategies to enhance the role of banks in supporting Japan's transition towards a carbon-neutral economy. The findings will guide policy recommendations for banks to improve their environmental risk management and sustainability strategies, benefiting both the financial sector and society at large.",
         "Interestingness": 8,
         "Feasibility": 7,
         "Novelty": 7,
