@@ -7,20 +7,21 @@ import subprocess
 import sys
 from subprocess import TimeoutExpired
 
-MAX_ITERS = 4
+MAX_ITERS = 4 # for failed queries to get a certain data object
+# MAX_ITERS = 1
 # MAX_RUNS = 5
-MAX_QUERIES = 10
+MAX_QUERIES = 5 # max num of different data objects to gather
 MAX_STDERR_OUTPUT = 1500
 
-coder_prompt = """Your goal is to implement the following idea: {title}.
+coder_prompt = """Your goal is to investigate the following idea: {title}.
 The proposed investigation is as follows: {idea}.
-You are given a total of up to {max_runs} runs to complete the necessary experiments. You do not need to use all {max_runs}.
+You are given a total of up to {max_queries} research queries to complete the investigation. You do not need to use all {max_queries}.
 
-First, plan the list of data you would like to gather.
+First, plan the list of data objects you would like to gather. Modify and duplicate the example in `investigation.json` for each query, changing only the `"Description"` field to describe the contents of the `"Data"` object you would like to have.
+For example, a data object can be table of yearly historical data, or simply a single fact about the topic.
 
-After you complete each change, we will run the command `python experiment.py --out_dir=run_i' where i is the run number and evaluate the results.
-YOUR PROPOSED CHANGE MUST USE THIS COMMAND FORMAT, DO NOT ADD ADDITIONAL COMMAND LINE ARGS.
-You can then implement the next thing on your list."""
+We will use your changes to gather the data needed and populate each data object in `investigation.json` with the results.
+"""
 
 
 # RUN EXPERIMENT
@@ -117,10 +118,10 @@ def perform_experiments(idea, folder_name, coder, baseline_results) -> bool:
     next_prompt = coder_prompt.format(
         title=idea["Title"],
         idea=idea["Experiment"],
-        max_runs=MAX_RUNS,
+        max_runs=MAX_QUERIES,
         baseline_results=baseline_results,
     )
-    while run < MAX_RUNS + 1:
+    while run < MAX_QUERIES + 1:
         if current_iter >= MAX_ITERS:
             print("Max iterations reached")
             break
