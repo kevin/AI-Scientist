@@ -1,38 +1,20 @@
 [
     {
-        "Name": "aging_population_banking",
-        "Title": "The Impact of Japan\u00e2\u20ac\u2122s Aging Population on Banking Stability and Financial Inclusion",
-        "Experiment": "Analyze demographic and financial data from Japanese banks to assess changes in deposit patterns, loan demand, and financial service utilization among elderly customers. Investigate policy responses, such as digital banking adaptation and financial literacy programs, to mitigate risks associated with an aging customer base.",
-        "Interestingness": 7,
-        "Feasibility": 6,
-        "Novelty": 5,
-        "novel": true
-    },
-    {
-        "Name": "digital_yen_policy",
-        "Title": "The Case for a Digital Yen: Evaluating the Risks and Benefits for Japan\u00e2\u20ac\u2122s Banking Sector",
-        "Experiment": "Assess the potential effects of a central bank digital currency (CBDC) on Japan\u00e2\u20ac\u2122s banking system by reviewing global case studies, conducting financial simulations, and analyzing monetary policy implications. Investigate whether a digital yen could alleviate financial stagnation, improve transaction efficiency, and enhance economic resilience.",
-        "Interestingness": 8,
-        "Feasibility": 5,
-        "Novelty": 6,
-        "novel": true
-    },
-    {
-        "Name": "ai_fraud_detection",
-        "Title": "Leveraging AI for Fraud Detection in Japan\u2019s Banking Sector",
-        "Description": "This research focuses on the role of artificial intelligence in fraud detection within Japanese banks. By analyzing case studies and existing data on AI-based fraud detection systems, the study aims to identify successful implementations and areas for improvement. The objective is to propose effective frameworks that can enhance security and operational efficiency, addressing the increasing risks of financial fraud in the digital age.",
+        "Name": "privacy_preserving_analytics",
+        "Title": "Enhancing Japanese Banking Through Privacy-Preserving Data Analytics",
+        "Description": "The study will explore the potential of privacy-preserving data analytics technologies, such as homomorphic encryption and differential privacy, in the Japanese banking sector. It will investigate how these technologies can be used to leverage customer data while respecting strict privacy expectations and legal requirements. The research will involve reviewing existing literature, case studies from other countries, potential implementation strategies in Japan, and assessing the readiness and willingness of Japanese banks to adopt these technologies. The aim is to identify the benefits, challenges, and policy implications of adopting these technologies in Japanese banks.",
         "Interestingness": 8,
         "Feasibility": 8,
-        "Novelty": 7,
+        "Novelty": 9,
         "novel": true
     },
     {
-        "Name": "green_banking_initiatives",
-        "Title": "Green Banking in Japan: Evaluating Current Initiatives and Future Opportunities",
-        "Description": "This research will assess the current state of green banking initiatives in Japan, focusing on the integration of environmental sustainability into banking practices. It will analyze existing data on green loans, sustainable investment practices, and policy frameworks. The study aims to identify gaps in current practices and propose strategies to enhance the role of banks in supporting Japan's transition towards a carbon-neutral economy. The findings will guide policy recommendations for banks to improve their environmental risk management and sustainability strategies, benefiting both the financial sector and society at large.",
-        "Interestingness": 8,
-        "Feasibility": 7,
-        "Novelty": 7,
+        "Name": "ai_governance_framework",
+        "Title": "Establishing an Ethical AI Governance Framework for Japanese Banks",
+        "Description": "This research focuses on creating a governance framework for the implementation of artificial intelligence in Japanese banks. It will include examining global practices, stakeholder perceptions in Japan, and ethical considerations. The study aims to offer guidelines that balance AI innovation with transparency, accountability, and fairness, thereby enhancing customer trust and operational efficiency in the banking sector. The research will involve structured surveys and interviews with industry stakeholders and collaboration with academic and regulatory bodies to ensure the framework is both credible and practical.",
+        "Interestingness": 9,
+        "Feasibility": 8,
+        "Novelty": 8,
         "novel": true
     }
 ]

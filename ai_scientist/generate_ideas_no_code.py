@@ -20,7 +20,8 @@ Here are the ideas that you have already generated:
 '''
 
 Come up with the next impactful and creative idea for research directions you can feasibly investigate.
-Your investigation will consist of searching for existing published data and/or gathering new data with a study of your own to make a conclusion and support it.
+Your proposed investigation will consist of searching for existing published data and/or gathering new data with a study of your own to make a conclusion and support it.
+Note that you are not actually doing the research yet, but producing a proposal explaining why the idea is important to investigate and with a detailed plan for the research and how to interpret the possible results.
 
 Respond in the following format:
 

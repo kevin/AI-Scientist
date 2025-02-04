@@ -1,18 +1,3 @@
 [
-  {
-    "Name": "aging_population_banking",
-    "Title": "The Impact of Japan’s Aging Population on Banking Stability and Financial Inclusion",
-    "Experiment": "Analyze demographic and financial data from Japanese banks to assess changes in deposit patterns, loan demand, and financial service utilization among elderly customers. Investigate policy responses, such as digital banking adaptation and financial literacy programs, to mitigate risks associated with an aging customer base.",
-    "Interestingness": 7,
-    "Feasibility": 6,
-    "Novelty": 5
-  },
-  {
-    "Name": "digital_yen_policy",
-    "Title": "The Case for a Digital Yen: Evaluating the Risks and Benefits for Japan’s Banking Sector",
-    "Experiment": "Assess the potential effects of a central bank digital currency (CBDC) on Japan’s banking system by reviewing global case studies, conducting financial simulations, and analyzing monetary policy implications. Investigate whether a digital yen could alleviate financial stagnation, improve transaction efficiency, and enhance economic resilience.",
-    "Interestingness": 8,
-    "Feasibility": 5,
-    "Novelty": 6
-  }
+
 ]
