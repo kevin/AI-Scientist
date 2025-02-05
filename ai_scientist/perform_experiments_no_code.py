@@ -7,10 +7,10 @@ import subprocess
 import sys
 from subprocess import TimeoutExpired
 
-MAX_ITERS = 4 # for failed queries to get a certain data object
-# MAX_ITERS = 1
+# MAX_ITERS = 4 # for failed queries to get a certain data object
+MAX_ITERS = 1
 # MAX_RUNS = 5
-MAX_QUERIES = 5 # max num of different data objects to gather
+MAX_QUERIES = 8 # max num of different data objects to gather
 MAX_STDERR_OUTPUT = 1500
 
 # coder_prompt = """Your goal is to investigate the following idea: {title}.
@@ -28,7 +28,7 @@ You are given a total of up to {max_queries} research queries to complete the in
 
 First, plan the list of data objects you would like to gather. Modify and duplicate the example in `investigation.json` for each query, changing only the `"Description"` field to describe the contents of the `"Data"` object you would like to have.
 For example, a data object can be table of yearly historical data, or simply a single fact about the topic. Note if it should be findable from existing sources or if it needs to be gathered from scratch.
-These will represent the content of your investigation proposal, e.g., for supporting the importance of the topic and for laying out the research plan of the investigation.
+These will represent the content of your investigation proposal, e.g., for supporting the importance of the topic and for laying out the research plan of the actual investigation if it were to be conducted.
 """
 
 
