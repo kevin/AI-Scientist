@@ -169,18 +169,18 @@ def do_idea(
     assert not osp.exists(folder_name), f"Folder {folder_name} already exists."
     destination_dir = folder_name
     shutil.copytree(base_dir, destination_dir, dirs_exist_ok=True)
-    with open(osp.join(base_dir, "run_0", "final_info.json"), "r") as f:
-        baseline_results = json.load(f)
-    baseline_results = {k: v["means"] for k, v in baseline_results.items()}
+    # with open(osp.join(base_dir, "run_0", "final_info.json"), "r") as f:
+    #     baseline_results = json.load(f)
+    # baseline_results = {k: v["means"] for k, v in baseline_results.items()}
     exp_file = osp.join(folder_name, "experiment.py")
     vis_file = osp.join(folder_name, "plot.py")
     notes = osp.join(folder_name, "notes.txt")
     with open(notes, "w") as f:
         f.write(f"# Title: {idea['Title']}\n")
         f.write(f"# Experiment description: {idea['Experiment']}\n")
-        f.write(f"## Run 0: Baseline\n")
-        f.write(f"Results: {baseline_results}\n")
-        f.write(f"Description: Baseline results.\n")
+        # f.write(f"## Run 0: Baseline\n")
+        # f.write(f"Results: {baseline_results}\n")
+        # f.write(f"Description: Baseline results.\n")
     if log_file:
         original_stdout = sys.stdout
         original_stderr = sys.stderr
@@ -214,7 +214,7 @@ def do_idea(
         print_time()
         print(f"*Starting Experiments*")
         try:
-            success = perform_experiments(idea, folder_name, coder, baseline_results)
+            success = perform_experiments(idea, folder_name, coder)
         except Exception as e:
             print(f"Error during experiments: {e}")
             print(f"Experiments failed for idea {idea_name}")
