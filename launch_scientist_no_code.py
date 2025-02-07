@@ -177,7 +177,7 @@ def do_idea(
     notes = osp.join(folder_name, "notes.txt")
     with open(notes, "w") as f:
         f.write(f"# Title: {idea['Title']}\n")
-        f.write(f"# Experiment description: {idea['Experiment']}\n")
+        f.write(f"# Description: {idea['Description']}\n")
         # f.write(f"## Run 0: Baseline\n")
         # f.write(f"Results: {baseline_results}\n")
         # f.write(f"Description: Baseline results.\n")

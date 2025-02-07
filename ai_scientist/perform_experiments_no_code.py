@@ -119,15 +119,14 @@ def run_plotting(folder_name, timeout=600):
 
 
 # PERFORM EXPERIMENTS
-def perform_experiments(idea, folder_name, coder, baseline_results) -> bool:
+def perform_experiments(idea, folder_name, coder) -> bool:
     ## RUN EXPERIMENT
     current_iter = 0
     run = 1
     next_prompt = coder_prompt.format(
         title=idea["Title"],
         idea=idea["Experiment"],
-        max_runs=MAX_QUERIES,
-        baseline_results=baseline_results,
+        max_runs=MAX_QUERIES
     )
     while run < MAX_QUERIES + 1:
         if current_iter >= MAX_ITERS:
