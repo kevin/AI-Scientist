@@ -292,6 +292,7 @@ def search_for_papers(query, result_limit=10, engine="semanticscholar") -> Union
                 "fields": "title,authors,venue,year,abstract,citationStyles,citationCount",
             },
         )
+        print(f"Query: {query}")
         print(f"Response Status Code: {rsp.status_code}")
         print(
             f"Response Content: {rsp.text[:500]}"

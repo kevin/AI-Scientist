@@ -15,7 +15,7 @@ from datetime import datetime
 
 from ai_scientist.generate_ideas_no_code import generate_ideas, check_idea_novelty
 from ai_scientist.llm import create_client, AVAILABLE_LLMS
-from ai_scientist.perform_experiments_no_code import perform_experiments
+from ai_scientist.perform_experiments_no_code import perform_investigation
 from ai_scientist.perform_review_no_code import perform_review, load_paper, perform_improvement
 from ai_scientist.perform_writeup_no_code import perform_writeup, generate_latex
 
@@ -172,8 +172,9 @@ def do_idea(
     # with open(osp.join(base_dir, "run_0", "final_info.json"), "r") as f:
     #     baseline_results = json.load(f)
     # baseline_results = {k: v["means"] for k, v in baseline_results.items()}
-    exp_file = osp.join(folder_name, "experiment.py")
-    vis_file = osp.join(folder_name, "plot.py")
+    # exp_file = osp.join(folder_name, "experiment.py")
+    investigation_file = osp.join(folder_name, "investigation.json")
+    # vis_file = osp.join(folder_name, "plot.py")
     notes = osp.join(folder_name, "notes.txt")
     with open(notes, "w") as f:
         f.write(f"# Title: {idea['Title']}\n")
@@ -192,7 +193,8 @@ def do_idea(
         print_time()
         print(f"*Starting idea: {idea_name}*")
         ## PERFORM EXPERIMENTS
-        fnames = [exp_file, vis_file, notes]
+        # fnames = [exp_file, vis_file, notes]
+        fnames = [investigation_file, notes]
         io = InputOutput(
             yes=True, chat_history_file=f"{folder_name}/{idea_name}_aider.txt"
         )
@@ -214,7 +216,7 @@ def do_idea(
         print_time()
         print(f"*Starting Experiments*")
         try:
-            success = perform_experiments(idea, folder_name, coder)
+            success = perform_investigation(idea, folder_name, coder, client, client_model)
         except Exception as e:
             print(f"Error during experiments: {e}")
             print(f"Experiments failed for idea {idea_name}")
@@ -229,7 +231,8 @@ def do_idea(
         ## PERFORM WRITEUP
         if writeup == "latex":
             writeup_file = osp.join(folder_name, "latex", "template.tex")
-            fnames = [exp_file, writeup_file, notes]
+            # fnames = [exp_file, writeup_file, notes]
+            fnames = [investigation_file, writeup_file, notes]
             if model == "deepseek-coder-v2-0724":
                 main_model = Model("deepseek/deepseek-coder")
             elif model == "llama3.1-405b":
