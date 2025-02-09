@@ -8,6 +8,7 @@ import sys
 from subprocess import TimeoutExpired
 
 from ai_scientist.generate_ideas_no_code import search_for_papers
+from ai_scientist.llm import get_response_from_llm, extract_json_between_markers
 
 MAX_ITERS = 4 # for failed queries to get a certain data object
 # MAX_RUNS = 5
@@ -35,12 +36,203 @@ Change the `"Phase"` and `"Purpose"` fields to explain if it is needed for the p
 Change the `"Query"` field to a query to search the literature with for the data ONLY if it exists and is needed for the proposal.
 Leave the other fields empty.
 For example, a data object can be table of yearly historical data, or simply a single fact from an article about the topic.
+Objects needed for the proposal should be limited to what can be found on Semantic Scholar, but otherwise you can propose any data object you think would be useful for the investigation.
 These will represent the content of your investigation proposal, e.g., for supporting the importance of the topic and for laying out the research plan of the actual investigation if it were to be conducted.
 """
 
 
-# RUN EXPERIMENT
-# def gather_data(folder_name, run_num, timeout=7200):
+# RUN INVESTIGATION
+
+# helper
+def get_papers(query):
+    papers = search_for_papers(query, result_limit=10, engine="semanticscholar")
+    if papers is None:
+        papers_str = "No papers found."
+
+    paper_strings = []
+    for i, paper in enumerate(papers):
+        paper_strings.append(
+            """{i}: {title}. {authors}. {venue}, {year}.\nNumber of citations: {cites}\nAbstract: {abstract}""".format(
+                i=i,
+                title=paper["title"],
+                authors=paper["authors"],
+                venue=paper["venue"],
+                year=paper["year"],
+                cites=paper["citationCount"],
+                abstract=paper["abstract"],
+            )
+        )
+    papers_str = "\n\n".join(paper_strings)
+    return papers_str
+
+# prompt for gathering proposal data (not investigation data)
+gather_data_system_msg = """You are an ambitious researcher who is looking to publish a paper that will contribute significantly to the field.
+You are writing a proposal for a research investigation with the title "{title}".
+The proposed investigation is as follows: {idea}.
+
+You need to gather data to justify the importance of the research.
+Each data object has a description of what data is needed and a query to search for relevant papers.
+You will be shown search results from Semantic Scholar and need to either:
+
+1. Fill in the "Data" field of the object based on information from the papers, if you found relevant data
+2. Refine the query to search again, if the current results aren't quite right
+3. Modify the data object description to look for different but related information, if the original data cannot be found
+
+You have up to {max_iters} attempts to fill the data object but do not need to use them all.
+
+For option 1, extract specific facts, statistics, or findings from the papers that match what the data object needs. This will exit early.
+For option 2, suggest a modified search query that might find more relevant papers.
+For option 3, suggest a new data object that might be easier to find in the literature.
+
+The current data object is:
+```json
+{
+    "Description": "{data_description}"
+    "Source": "{source}"
+    "Purpose": "{purpose}"
+    "Query": "{query}"
+    "Citation": <empty>
+    "Data": <empty>
+}
+"""
+
+gather_data_prompt = '''Round {current_iter}/{num_iters}.
+You have this idea:
+
+The results of the last query are:
+"""
+{last_query_results}
+"""
+
+Respond in the following format:
+
+THOUGHT:
+<THOUGHT>
+
+RESPONSE:
+```json
+<JSON>
+```
+
+In <THOUGHT>, first briefly reason over the results and whether they are useful for the data object you are trying to gather.
+
+In <JSON>, respond in JSON format with a new data object containing all the fields from the previous data object.
+Option 1: If you found relevant data in the papers, fill in the "Data" field with the relevant information formatted and the "Citation" field with the citation of the paper. You may output an array of citations if you used multiple papers to gather the data.
+- This is the only case when you should fill in the "Data" and "Citation" fields.
+- You may also make small changes to the other fields if the data found is slightly different from what was originally proposed but still fits the purpose.
+Option 2: If you need to refine the query, fill in the "Query" field with a new query to search for papers and leave the other fields unchanged.
+Option 3: If you must change the data object description because the original data cannot be found or you deem it unfit, you may change any of the fields except "Data" and "Citation".
+
+A query will work best if you are able to recall the exact name of the paper you are looking for, or the authors.
+This JSON will be automatically parsed, so ensure the format is precise.'''
+
+def gather_data(idea, folder_name, client, client_model):
+    # when data gathering fails for a certain data object, we retry up to MAX_ITERS times.
+    # fails can adjust query or change the data object to a new one if it can't be found
+    # for investigation data that can't be found: just leave blank, and in writeup it can note that this data was not found for claims that rely on it
+
+    # read in the investigation.json file
+    try:
+        with open(osp.join(folder_name, "investigation.json"), "r") as f:
+            investigation = json.load(f)
+            # make a copy of the original investigation file before we start modifying it
+            shutil.copy(
+                osp.join(folder_name, "investigation.json"),
+                osp.join(folder_name, "investigation_original.json"),
+            )
+    except FileNotFoundError:
+        print("investigation.json not found.")
+        return False
+    except json.JSONDecodeError:
+        print("investigation.json is not a valid json file.")
+        return False
+
+    for data_object in investigation:
+        # must be possible to gather
+        if data_object["Exists"] == "No":
+            continue
+        # must be needed for the proposal (we don't get investigation data)
+        if data_object["Purpose"] == "Investigation":
+            continue
+        # must have a query (should be filled in by coder if exists)
+        assert data_object["Query"] != "", "Query must be filled in for data object that exists and is needed for proposal."
+
+        # search query in Semantic Scholar, and let language model either generate the data object or refine the query
+        query = data_object["Query"]
+        papers_str = get_papers(query)
+        
+        try:
+            print(f"Gathering data object: {data_object['Description']}")
+            gather_data_system_prompt = gather_data_system_msg.format(
+                title=idea["Title"],
+                idea=idea["Description"],
+                max_iters=MAX_ITERS,
+                data_description=data_object["Description"],
+                source=data_object["Source"],
+                purpose=data_object["Purpose"],
+                query=data_object["Query"]
+            )
+
+            def update_data_object_from_json(data_object, json_output):
+                for field in ["Description", "Source", "Purpose", "Query", "Citation", "Data"]:
+                    data_object[field] = json_output[field]
+
+            msg_history = []
+            text, msg_history = get_response_from_llm(
+                gather_data_prompt.format(
+                    current_iter=1,
+                    num_iters=MAX_ITERS,
+                    last_query_results=papers_str
+                ),
+                client=client,
+                model=client_model,
+                system_message=gather_data_system_prompt,
+                msg_history=msg_history
+            )
+            
+            json_output = extract_json_between_markers(text)
+            assert json_output is not None, "Failed to extract JSON from LLM output"
+            print(json_output)
+
+            # iteratively improve
+            for i in range(1, MAX_ITERS):
+                update_data_object_from_json(data_object, json_output)
+                
+                if json_output["Data"] != "" and json_output["Citation"] != "":
+                    break
+
+                papers_str = get_papers(data_object["Query"])
+                text, msg_history = get_response_from_llm(
+                    gather_data_prompt.format(
+                        current_iter=i+1,
+                        num_iters=MAX_ITERS,
+                        last_query_results=papers_str
+                    ),
+                    client=client,
+                    model=client_model,
+                    system_message=gather_data_system_prompt,
+                    msg_history=msg_history
+                )
+                
+                json_output = extract_json_between_markers(text)
+                assert json_output is not None, "Failed to extract JSON from LLM output"
+                print(json_output)
+            
+            update_data_object_from_json(data_object, json_output)
+            if json_output["Data"] == "" and json_output["Citation"] == "":
+                print(f"Warning: Data object {data_object['Description']} not found.")
+            else:
+                print(f"Data object {data_object['Description']} found.")
+        except Exception as e:
+            print(f"Error occurred when gathering data: {e}")
+            return False
+    
+    # write the updated investigation.json file
+    with open(osp.join(folder_name, "investigation.json"), "w") as f:
+        json.dump(investigation, f, indent=4)
+
+    return True
+
     # cwd = osp.abspath(folder_name)
     # # COPY CODE SO WE CAN SEE IT.
     # shutil.copy(
@@ -135,24 +327,12 @@ def perform_investigation(idea, folder_name, coder, client, client_model) -> boo
     print(coder_out)
 
     # 2. Gather the data that is possible to gather
-    # when data gathering fails for a certain data object, we retry up to MAX_ITERS times.
-    # fails can adjust query or change the data object to a new one if it can't be found
-    # for investigation data that can't be found: just leave blank, and in writeup it can note that this data was not found for claims that rely on it
-
-    # read in the investigation.json file
-    try:
-        with open(osp.join(folder_name, "investigation.json"), "r") as f:
-            investigation = json.load(f)
-    except FileNotFoundError:
-        print("investigation.json not found.")
+    success = gather_data(idea, folder_name, client, client_model)
+    if not success:
+        print("Failed to gather all data objects.")
         return False
-    except json.JSONDecodeError:
-        print("investigation.json is not a valid json file.")
-        return False
-
-    for data_object in investigation:
-        # must be possible to gather
-        pass
+    
+    # anything else before writeup?
 
     return True
 

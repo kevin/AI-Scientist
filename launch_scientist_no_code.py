@@ -227,6 +227,10 @@ def do_idea(
             return False
 
         print_time()
+
+        print("-- TEMP; ENDING BEFORE WRITEUP")
+        return True
+
         print(f"*Starting Writeup*")
         ## PERFORM WRITEUP
         if writeup == "latex":

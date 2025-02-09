@@ -7,7 +7,7 @@ import shutil
 import subprocess
 from typing import Optional, Tuple
 
-from ai_scientist.generate_ideas import search_for_papers
+from ai_scientist.generate_ideas_no_code import search_for_papers
 from ai_scientist.llm import get_response_from_llm, extract_json_between_markers, create_client, AVAILABLE_LLMS
 
 
@@ -473,7 +473,7 @@ Be sure to first name the file and use *SEARCH/REPLACE* blocks to perform these 
             # insert this into draft before the "\end{filecontents}" line
             search_str = r"\end{filecontents}"
             draft = draft.replace(search_str, f"{bibtex_string}{search_str}")
-            with open(osp.join(folder_name, "latex", "template.tex"), "w", encoding="utf-8") as f:
+            with open(osp.join(folder_name, "latex", "template.tex"), "w", encoding="utf-8") as f: # explicitly set encoding for Windows
                 f.write(draft)
             coder_out = coder.run(prompt)
 
