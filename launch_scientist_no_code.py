@@ -228,9 +228,6 @@ def do_idea(
 
         print_time()
 
-        print("-- TEMP; ENDING BEFORE WRITEUP")
-        return True
-
         print(f"*Starting Writeup*")
         ## PERFORM WRITEUP
         if writeup == "latex":
@@ -261,6 +258,10 @@ def do_idea(
             raise ValueError(f"Writeup format {writeup} not supported.")
 
         print_time()
+
+        print("-- TEMP; ENDING BEFORE REVIEW --")
+        return True
+
         print(f"*Starting Review*")
         ## REVIEW PAPER
         if writeup == "latex":

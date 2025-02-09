@@ -1,11 +1,11 @@
 [
     {
-        "Name": "cultural_adaptation_digital_banking",
-        "Title": "Cultural Adaptation in Japanese Banks Amid Digital Transformation",
-        "Description": "This research will investigate how Japanese banks are culturally and organizationally adapting to digital transformations. By examining existing case studies and conducting interviews with bank employees and managers, the study aims to uncover strategies for effectively integrating digital practices within traditional banking environments. The investigation will explore resistance factors, successful adaptation stories, and the influence of Japanese work culture on these processes. This could lead to arguments on the importance of cultural considerations in digital banking strategies, proposing policy recommendations for smoother transitions.",
-        "Interestingness": 8,
+        "Name": "digital_financial_literacy",
+        "Title": "Evaluating Digital Banking's Effect on Financial Literacy Among Vulnerable Populations in Japan",
+        "Description": "This study investigates the intersection of digital banking adoption and financial literacy among vulnerable populations in Japan, including the aging, rural communities, and those with lower socioeconomic status. The research will assess how digitalization in banking affects financial accessibility and literacy for these groups, who may face exclusion due to low digital literacy. Data will be collected through surveys and interviews focusing on digital banking usage and literacy challenges. The study aims to propose technology-based solutions and strategies for banks to enhance digital financial literacy and inclusivity, thereby improving service efficiency.",
+        "Interestingness": 9,
         "Feasibility": 7,
-        "Novelty": 8,
+        "Novelty": 9,
         "novel": true
     }
 ]

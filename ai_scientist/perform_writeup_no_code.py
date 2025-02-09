@@ -129,51 +129,54 @@ def compile_latex(cwd, pdf_file, timeout=30):
 
 per_section_tips = {
     "Abstract": """
-- TL;DR of the paper
+- TL;DR of this research proposal.
 - What are we trying to do and why is it relevant?
 - Why is this hard? 
 - How do we solve it (i.e. our contribution!)
-- How do we verify that we solved it (e.g. Experiments and results)
+- What are the expected outcomes and implications of our findings?
 
 Please make sure the abstract reads smoothly and is well-motivated. This should be one continuous paragraph with no breaks between the lines.
 """,
-    "Introduction": """
-- Longer version of the Abstract, i.e. of the entire paper
-- Provide background information and state the problem.
-- Define key concepts, present relevant theories, or discuss historical/political/economic context.
+    "Research Question & Motivation": """
 - What are we trying to do and why is it relevant?
 - Why is this hard?
-- How do we solve it (i.e. our contribution!)
-- How do we verify that we solved it (e.g. Experiments and results)
-- New trend: specifically list your contributions as bullet points
-- Extra space? Future work!
+- Is this overlooked or understudied?
+- What gap in current knowledge/practice does this address?
+- Potential societal/scientific impact if answered.
+- Avoid jargon. Focus on framing the problem as a "missing puzzle piece" in the field.
 """,
     "Related Work": """
-- Academic siblings of our work, i.e. alternative attempts in literature at trying to solve the same problem. 
-- Goal is to “Compare and contrast” - i.e. Review and synthesize relevant literature related to your topic. Highlight gaps that your research intends to fill. 
-- Note: Just describing what another paper is doing is not enough. We need to compare and contrast.
+- Key prior studies addressing similar/adjacent questions.
+- Critical limitations/methodological blind spots in existing work.
+- Why have others overlooked this angle?
+- Compare/contrast approaches, not just list papers. Highlight why prior solutions can’t address the new problem.
 """,
-    "Method": """
-- Describe your research approach. This section can include:
-- Research design (qualitative, quantitative, mixed-methods, argumentative).
-- Data sources or case studies
-- Theoretical frameworks or models
-- Methods of data collection and analysis
+    "Proposed Investigation": """
+- Hypothesis/research objectives, planned data objects in `investigation.py`.
+- Methodology: Experimental design, data sources, tools, validation strategies.
+- Novelty of the approach (e.g., interdisciplinary methods, new datasets).
+- Balance specificity with flexibility. Include alternative pathways if initial plans fail.
 """,
-    "Analysis & Findings": """
-- Present your analysis and key findings. Organize the section in a way that clearly links your methodology to your results.
-- Includes statements on hyperparameters and other potential issues of fairness.
-- Only includes results that have actually been found. Do not hallucinate results that don't exist.
-- Discusses limitations of the method.
-- Make sure to include all the results, and include all relevant figures.
+    "Feasibility & Risks": """
+- Resources/timeline needed (data availability, equipment, collaborators).
+- Technical/practical challenges (e.g., ethical concerns, data scarcity).
+- Mitigation strategies for risks.
+- Be transparent. Avoid overpromising; focus on realistic steps.
 """,
-    "Discussion": """
-- Interpret your results. Discuss how your findings relate to previous research, and address any limitations or unexpected results.
-- Discuss the implications and real-world impact of your findings. E.g., explain how your findings can inform decision making. What do your results mean for the broader field?
+    "Expected Contributions": """
+- Theoretical: New frameworks, models, or concepts.
+- Practical: Tools, datasets, or actionable insights.
+- Long-term implications of the findings.
+- Distinguish between guaranteed outputs (e.g., datasets) and speculative outcomes (e.g., theories).
 """,
-    "Conclusion": """
-- Brief recap of the entire paper.
-- Discuss limitations of your study and suggest areas for future research.
+    "Anticipated Paper Structure": """
+- Mock outline of a future paper (e.g., sections, key figures/tables).
+- Placeholders for results/discussion based on hypothesized findings.
+- Use this to show how the proposal aligns with publishable research. Keep it modular to accommodate unexpected results.
+""",
+    "Open Questions for Feedback": """
+- List of unresolved issues to discuss with peers (e.g., methodological tradeoffs, ethical dilemmas).
+- Encourage collaboration. Frame questions to invite constructive critique.
 """,
 }
 
@@ -402,6 +405,7 @@ def perform_writeup(
     # CURRENTLY ASSUMES LATEX
     abstract_prompt = f"""We've provided the `latex/template.tex` file to the project. We will be filling it in section by section.
 
+This is just a research proposal, with information in `notes.txt` to guide you. `investigation.json` contains the data objects for the proposal and the planned data for the investigation if conducted.
 First, please fill in the "Title" and "Abstract" sections of the writeup.
 
 Some tips are provided below:
@@ -418,11 +422,12 @@ Be sure to first name the file and use *SEARCH/REPLACE* blocks to perform these 
         .replace(r"}}", "}")
     )
     for section in [
-        "Introduction",
-        "Method",
-        "Analysis & Findings",
-        "Discussion",
-        "Conclusion",
+        "Research Question & Motivation",
+        "Proposed Investigation",
+        "Feasibility & Risks",
+        "Expected Contributions",
+        "Anticipated Paper Structure",
+        "Open Questions for Feedback",
     ]:
         section_prompt = f"""Please fill in the {section} of the writeup. Some tips are provided below:
 {per_section_tips[section]}
@@ -430,7 +435,6 @@ Be sure to first name the file and use *SEARCH/REPLACE* blocks to perform these 
 Be sure to use \cite or \citet where relevant, referring to the works provided in the file.
 Do not cite anything that is not already in `references.bib`. Do not add any new entries to this.
 
-Keep the experimental results (figures and tables) only in the Results section, and make sure that any captions are filled in.
 In this pass, do not reference anything in later sections of the paper.
 
 Before every paragraph, please include a brief description of what you plan to write in that paragraph in a comment.
@@ -490,12 +494,13 @@ First, re-think the Title if necessary. Keep this concise and descriptive of the
     )
     for section in [
         "Abstract",
-        "Introduction",
+        "Research Question & Motivation",
         "Related Work",
-        "Method",
-        "Analysis & Findings",
-        "Discussion",
-        "Conclusion",
+        "Proposed Investigation",
+        "Feasibility & Risks",
+        "Expected Contributions",
+        "Anticipated Paper Structure",
+        "Open Questions for Feedback",
     ]:
         coder_out = coder.run(
             second_refinement_prompt.format(

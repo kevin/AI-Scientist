@@ -32,7 +32,7 @@ First, plan the list of data objects you would like to gather.
 Modify and duplicate the example in `investigation.json` for each query.
 Change the `"Description"` field to describe the contents of the `"Data"` object you would like to have.
 Change the `"Exists"` and `"Source"` fields to indicate if the data should already exist (e.g., from a prior study or on the internet) or if it needs to be gathered from scratch as during this proposed research.
-Change the `"Phase"` and `"Purpose"` fields to explain if it is needed for the proposal justification (e.g., data showing the scale or impact of the problem, examples of similar successful research in other contexts, other statistics), or if it is needed for the actual investigation (existing data or new data collection that needs to be sourced by the researcher but can't be done in just this proposal).
+Change the `"Phase"` and `"Purpose"` fields to explain if it is needed for the proposal justification (e.g., data showing the scale or impact of the problem, examples of similar successful research in other contexts, other statistics), or if it is needed for the actual investigation (can also be existing data or new data collection that needs to be sourced by the researcher but can't be done in just this proposal).
 Change the `"Query"` field to a query to search the literature with for the data ONLY if it exists and is needed for the proposal.
 Leave the other fields empty.
 For example, a data object can be table of yearly historical data, or simply a single fact from an article about the topic.
@@ -47,7 +47,7 @@ These will represent the content of your investigation proposal, e.g., for suppo
 def get_papers(query):
     papers = search_for_papers(query, result_limit=10, engine="semanticscholar")
     if papers is None:
-        papers_str = "No papers found."
+        return "No papers found. Try to make the query broader or different altogether."
 
     paper_strings = []
     for i, paper in enumerate(papers):
@@ -157,10 +157,7 @@ def gather_data(idea, folder_name, client, client_model):
         # must have a query (should be filled in by coder if exists)
         assert data_object["Query"] != "", "Query must be filled in for data object that exists and is needed for proposal."
 
-        # search query in Semantic Scholar, and let language model either generate the data object or refine the query
-        query = data_object["Query"]
-        papers_str = get_papers(query)
-        
+        original_data_object = data_object.copy()
         try:
             print(f"Gathering data object: {data_object['Description']}")
             gather_data_system_prompt = gather_data_system_msg.format(
@@ -178,34 +175,20 @@ def gather_data(idea, folder_name, client, client_model):
                     data_object[field] = json_output[field]
 
             msg_history = []
-            text, msg_history = get_response_from_llm(
-                gather_data_prompt.format(
-                    current_iter=1,
-                    num_iters=MAX_ITERS,
-                    last_query_results=papers_str
-                ),
-                client=client,
-                model=client_model,
-                system_message=gather_data_system_prompt,
-                msg_history=msg_history
-            )
 
-            
-            json_output = extract_json_between_markers(text)
-            assert json_output is not None, "Failed to extract JSON from LLM output"
-            print(json_output)
-
-            # iteratively improve
-            for i in range(1, MAX_ITERS):
-                update_data_object_from_json(data_object, json_output)
-                
-                if json_output["Data"] != "" and json_output["Citation"] != "":
+            # run rounds and iteratively improve
+            cur_iter = 1
+            while cur_iter <= MAX_ITERS:
+                if data_object["Data"] is not {} and data_object["Citation"] != "":
                     break
 
+                print(f"Round {cur_iter}/{MAX_ITERS}")
+
+                # search query in Semantic Scholar, and let language model either generate the data object or refine the query
                 papers_str = get_papers(data_object["Query"])
                 text, msg_history = get_response_from_llm(
                     gather_data_prompt.format(
-                        current_iter=i+1,
+                        current_iter=cur_iter,
                         num_iters=MAX_ITERS,
                         last_query_results=papers_str
                     ),
@@ -216,13 +199,24 @@ def gather_data(idea, folder_name, client, client_model):
                 )
                 
                 json_output = extract_json_between_markers(text)
+                print(text)
                 assert json_output is not None, "Failed to extract JSON from LLM output"
+
+                cur_iter += 1
+
+                if json_output["Description"] != data_object["Description"]:
+                    if cur_iter == MAX_ITERS:
+                        break # exit without updating so that the last data object is left as is
+                    print("Warning: Data object description changed.")
+                    # cur_iter -= 1 # allow one more iteration to try again
+
+                update_data_object_from_json(data_object, json_output)
             
-            update_data_object_from_json(data_object, json_output)
-            if json_output["Data"] == "" and json_output["Citation"] == "":
-                print(f"Warning: Data object {data_object['Description']} not found.")
+            if data_object["Data"] == {} and data_object["Citation"] == "":
+                print(f"Warning: Data object \"{data_object['Description']}\" not found.")
+                data_object["Data"] = "NOTE: Data was not found in the sources available." # note explicitly for writeup that this data was not found
             else:
-                print(f"Data object {data_object['Description']} found.")
+                print(f"Data object \"{data_object['Description']}\" found after {cur_iter - 1} iterations.")
         except Exception as e:
             print(f"Error occurred when gathering data: {e}")
             return False
@@ -329,10 +323,21 @@ def perform_investigation(idea, folder_name, coder, client, client_model) -> boo
     # 2. Gather the data that is possible to gather
     success = gather_data(idea, folder_name, client, client_model)
     if not success:
-        print("Failed to gather all data objects.")
+        print("Not all data objects were gathered.")
         return False
     
-    # anything else before writeup?
+    # 3. have coder modify the notes.txt file
+    next_prompt = """The data objects needed for the proposal phase have been gathered.
+Please modify `notes.txt` with a description of the data objects gathered and how they support the investigation proposal.
+If any data objects were not found, discuss how this may impact the proposal.
+- Does this weaken the proposal?
+- Can the proposal still be justified without this data? (e.g., by making assumptions with a disclaimer)
+- Remember, transparency is key. The goal is to not to deceive but to be honest about the limitations of the proposal while still making a strong case for the investigation.
+Also include any notes about the other data objects planned for the investigation phase, such as expanding on how they would be gathered, how they would be used, and the implications of various possible results.
+Be sure to name the file and use the correct edit format.
+"""
+    coder_out = coder.run(next_prompt)
+    print(coder_out)
 
     return True
 

@@ -300,7 +300,8 @@ def search_for_papers(query, result_limit=10, engine="semanticscholar") -> Union
         rsp.raise_for_status()
         results = rsp.json()
         total = results["total"]
-        time.sleep(1.0)
+        # time.sleep(1.0)
+        time.sleep(2.0) # try to reduce rate limit error
         if not total:
             return None
 
