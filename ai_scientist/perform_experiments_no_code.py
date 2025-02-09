@@ -91,8 +91,8 @@ The current data object is:
     "Source": "{source}"
     "Purpose": "{purpose}"
     "Query": "{query}"
-    "Citation": <empty>
-    "Data": <empty>
+    "Citation": ""
+    "Data": {{}}
 }}
 """
 
@@ -152,7 +152,7 @@ def gather_data(idea, folder_name, client, client_model):
         if data_object["Exists"] == "No":
             continue
         # must be needed for the proposal (we don't get investigation data)
-        if data_object["Purpose"] == "Investigation":
+        if data_object["Phase"] == "Investigation":
             continue
         # must have a query (should be filled in by coder if exists)
         assert data_object["Query"] != "", "Query must be filled in for data object that exists and is needed for proposal."
