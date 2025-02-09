@@ -10,7 +10,6 @@ from subprocess import TimeoutExpired
 from ai_scientist.generate_ideas_no_code import search_for_papers
 
 MAX_ITERS = 4 # for failed queries to get a certain data object
-# MAX_ITERS = 1
 # MAX_RUNS = 5
 MAX_QUERIES = 10 # max num of different data objects to gather
 MAX_STDERR_OUTPUT = 1500
@@ -41,7 +40,7 @@ These will represent the content of your investigation proposal, e.g., for suppo
 
 
 # RUN EXPERIMENT
-def gather_data(folder_name, run_num, timeout=7200):
+# def gather_data(folder_name, run_num, timeout=7200):
     # cwd = osp.abspath(folder_name)
     # # COPY CODE SO WE CAN SEE IT.
     # shutil.copy(
@@ -125,19 +124,37 @@ def perform_investigation(idea, folder_name, coder, client, client_model) -> boo
     ## RUN EXPERIMENT
     current_iter = 0
     run = 1
-    next_prompt = coder_prompt.format(
+    start_investigation_prompt = coder_prompt.format(
         title=idea["Title"],
         idea=idea["Description"],
         max_queries=MAX_QUERIES
     )
 
     # 1. What data objects to gather
-    coder_out = coder.run(next_prompt)
+    coder_out = coder.run(start_investigation_prompt)
     print(coder_out)
 
-    # 2. Gather the data for the proposal justification
+    # 2. Gather the data that is possible to gather
     # when data gathering fails for a certain data object, we retry up to MAX_ITERS times.
-    # or: just leave blank, and in writeup it can note that this data was not found for claims that rely on it?
+    # fails can adjust query or change the data object to a new one if it can't be found
+    # for investigation data that can't be found: just leave blank, and in writeup it can note that this data was not found for claims that rely on it
+
+    # read in the investigation.json file
+    try:
+        with open(osp.join(folder_name, "investigation.json"), "r") as f:
+            investigation = json.load(f)
+    except FileNotFoundError:
+        print("investigation.json not found.")
+        return False
+    except json.JSONDecodeError:
+        print("investigation.json is not a valid json file.")
+        return False
+
+    for data_object in investigation:
+        # must be possible to gather
+        pass
+
+    return True
 
 #     while run < MAX_QUERIES + 1:
 #         if current_iter >= MAX_ITERS:

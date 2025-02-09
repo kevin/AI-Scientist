@@ -473,7 +473,7 @@ Be sure to first name the file and use *SEARCH/REPLACE* blocks to perform these 
             # insert this into draft before the "\end{filecontents}" line
             search_str = r"\end{filecontents}"
             draft = draft.replace(search_str, f"{bibtex_string}{search_str}")
-            with open(osp.join(folder_name, "latex", "template.tex"), "w") as f:
+            with open(osp.join(folder_name, "latex", "template.tex"), "w", encoding="utf-8") as f:
                 f.write(draft)
             coder_out = coder.run(prompt)
 
