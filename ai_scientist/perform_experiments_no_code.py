@@ -86,14 +86,14 @@ For option 3, suggest a new data object that might be easier to find in the lite
 
 The current data object is:
 ```json
-{
+{{
     "Description": "{data_description}"
     "Source": "{source}"
     "Purpose": "{purpose}"
     "Query": "{query}"
     "Citation": <empty>
     "Data": <empty>
-}
+}}
 """
 
 gather_data_prompt = '''Round {current_iter}/{num_iters}.
@@ -189,6 +189,7 @@ def gather_data(idea, folder_name, client, client_model):
                 system_message=gather_data_system_prompt,
                 msg_history=msg_history
             )
+
             
             json_output = extract_json_between_markers(text)
             assert json_output is not None, "Failed to extract JSON from LLM output"
@@ -216,7 +217,6 @@ def gather_data(idea, folder_name, client, client_model):
                 
                 json_output = extract_json_between_markers(text)
                 assert json_output is not None, "Failed to extract JSON from LLM output"
-                print(json_output)
             
             update_data_object_from_json(data_object, json_output)
             if json_output["Data"] == "" and json_output["Citation"] == "":
