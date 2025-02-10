@@ -1,11 +1,11 @@
 [
     {
-        "Name": "digital_financial_literacy",
-        "Title": "Evaluating Digital Banking's Effect on Financial Literacy Among Vulnerable Populations in Japan",
-        "Description": "This study investigates the intersection of digital banking adoption and financial literacy among vulnerable populations in Japan, including the aging, rural communities, and those with lower socioeconomic status. The research will assess how digitalization in banking affects financial accessibility and literacy for these groups, who may face exclusion due to low digital literacy. Data will be collected through surveys and interviews focusing on digital banking usage and literacy challenges. The study aims to propose technology-based solutions and strategies for banks to enhance digital financial literacy and inclusivity, thereby improving service efficiency.",
+        "Name": "digital_banking_financial_literacy",
+        "Title": "Evaluating and Enhancing Financial Literacy in Japan's Aging Population through Digital Banking",
+        "Description": "This study explores the impact of digital banking on financial literacy among Japan's elderly and tests interventions to enhance their digital skills. It will assess digital literacy levels, correlate them with digital banking usage, identify barriers, and implement pilot programs, such as workshops, to improve access. The research aims to provide actionable insights for banks to design inclusive services and inform policymakers on enhancing financial literacy initiatives.",
         "Interestingness": 9,
         "Feasibility": 7,
-        "Novelty": 9,
+        "Novelty": 8,
         "novel": true
     }
 ]

@@ -18,7 +18,7 @@ def generate_latex(coder, folder_name, pdf_file, timeout=30, num_error_correctio
     writeup_file = osp.join(cwd, "template.tex")
 
     # Check all references are valid and in the references.bib file
-    with open(writeup_file, "r") as f:
+    with open(writeup_file, "r", encoding="utf-8") as f:
         tex_text = f.read()
     cites = re.findall(r"\\cite[a-z]*{([^}]*)}", tex_text)
     references_bib = re.search(
@@ -39,7 +39,7 @@ If so, please modify the citation in template.tex to match the name in reference
             coder.run(prompt)
 
     # Check all included figures are actually in the directory.
-    with open(writeup_file, "r") as f:
+    with open(writeup_file, "r", encoding="utf-8") as f:
         tex_text = f.read()
     referenced_figs = re.findall(r"\\includegraphics.*?{(.*?)}", tex_text)
     all_figs = [f for f in os.listdir(folder) if f.endswith(".png")]
@@ -51,7 +51,7 @@ Please ensure that the figure is in the directory and that the filename is corre
             coder.run(prompt)
 
     # Remove duplicate figures.
-    with open(writeup_file, "r") as f:
+    with open(writeup_file, "r", encoding="utf-8") as f:
         tex_text = f.read()
     referenced_figs = re.findall(r"\\includegraphics.*?{(.*?)}", tex_text)
     duplicates = {x for x in referenced_figs if referenced_figs.count(x) > 1}
@@ -63,7 +63,7 @@ If duplicated, identify the best location for the figure and remove any other.""
             coder.run(prompt)
 
     # Remove duplicate section headers.
-    with open(writeup_file, "r") as f:
+    with open(writeup_file, "r", encoding="utf-8") as f:
         tex_text = f.read()
     sections = re.findall(r"\\section{([^}]*)}", tex_text)
     duplicates = {x for x in sections if sections.count(x) > 1}
@@ -187,7 +187,7 @@ error_list = """- Unenclosed math symbols
 - Repeatedly defined figure labels
 - References to papers that are not in the .bib file, DO NOT ADD ANY NEW CITATIONS!
 - Unnecessary verbosity or repetition, unclear text
-- Results or insights in the `notes.txt` that have not yet need included
+- Results or insights in the `notes.txt` that have not yet been included
 - Any relevant figures that have not yet been included in the text
 - Closing any \\begin{{figure}} with a \\end{{figure}} and \\begin{{table}} with a \\end{{table}}, etc.
 - Duplicate headers, e.g. duplicated \\section{{Introduction}} or \\end{{document}}
@@ -400,7 +400,7 @@ Ensure the citation is well-integrated into the text.'''
 
 # PERFORM WRITEUP
 def perform_writeup(
-        idea, folder_name, coder, cite_client, cite_model, num_cite_rounds=20, engine="semanticscholar"
+        idea, folder_name, coder, cite_client, cite_model, num_cite_rounds=8, engine="semanticscholar"
 ):
     # CURRENTLY ASSUMES LATEX
     abstract_prompt = f"""We've provided the `latex/template.tex` file to the project. We will be filling it in section by section.
@@ -447,6 +447,17 @@ Be sure to first name the file and use *SEARCH/REPLACE* blocks to perform these 
             .replace(r"{{", "{")
             .replace(r"}}", "}")
         )
+    
+    # ADD REFERENCES FROM INVESTIGATION TO `references.bib` BEFORE RELATED WORK IS FILLED
+    init_references_prompt = """The `investigation.json` file contains the data objects gathered for the proposal and the planned data for the investigation if conducted.
+The `notes.txt` file contains additional information about the data objects and the investigation.
+Please fill in the references for the data objects in the `references.bib` file at the top of the `template.tex` file.
+Do not add any new entries to this file, only fill in the references for the data objects in the investigation.
+
+Be sure to first name the file and use *SEARCH/REPLACE* blocks to perform these edits.
+"""
+
+    coder_out = coder.run(init_references_prompt)
 
     # SKETCH THE RELATED WORK
     section_prompt = f"""Please fill in the Related Work of the writeup. Some tips are provided below:
@@ -454,6 +465,7 @@ Be sure to first name the file and use *SEARCH/REPLACE* blocks to perform these 
 {per_section_tips["Related Work"]}
 
 For this section, very briefly sketch out the structure of the section, and clearly indicate what papers you intend to include.
+This may include the papers already cited in the `references.bib` file, or other works you are aware of.
 Do this all in LaTeX comments using %.
 The related work should be concise, only plan to discuss the most relevant work.
 Do not modify `references.bib` to add any new citations, this will be filled in at a later stage.
@@ -464,7 +476,7 @@ Be sure to first name the file and use *SEARCH/REPLACE* blocks to perform these 
 
     # Fill paper with cites.
     for _ in range(num_cite_rounds):
-        with open(osp.join(folder_name, "latex", "template.tex"), "r") as f:
+        with open(osp.join(folder_name, "latex", "template.tex"), "r", encoding="utf-8") as f:
             draft = f.read()
         prompt, done = get_citation_aider_prompt(
             cite_client, cite_model, draft, _, num_cite_rounds, engine=engine
