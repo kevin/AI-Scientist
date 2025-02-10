@@ -169,6 +169,11 @@ Please make sure the abstract reads smoothly and is well-motivated. This should 
 - Long-term implications of the findings.
 - Distinguish between guaranteed outputs (e.g., datasets) and speculative outcomes (e.g., theories).
 """,
+    "Anticipated Paper Structure": """
+- Mock outline of a future paper (e.g., sections, key figures/tables).
+- Placeholders for results/discussion based on hypothesized findings.
+- Use this to show how the proposal aligns with publishable research. Keep it modular to accommodate unexpected results.
+""",
     "Open Questions for Feedback": """
 - List of unresolved issues to discuss with peers (e.g., methodological tradeoffs, ethical dilemmas).
 - Encourage collaboration. Frame questions to invite constructive critique.
@@ -182,7 +187,7 @@ error_list = """- Unenclosed math symbols
 - Repeatedly defined figure labels
 - References to papers that are not in the .bib file, DO NOT ADD ANY NEW CITATIONS!
 - Unnecessary verbosity or repetition, unclear text
-- Results or insights in the `notes.txt` that have not yet been included
+- Results or insights in `notes.txt` that have not yet been included
 - Any relevant figures that have not yet been included in the text
 - Closing any \\begin{{figure}} with a \\end{{figure}} and \\begin{{table}} with a \\end{{table}}, etc.
 - Duplicate headers, e.g. duplicated \\section{{Introduction}} or \\end{{document}}
@@ -421,6 +426,7 @@ Be sure to first name the file and use *SEARCH/REPLACE* blocks to perform these 
         "Proposed Investigation",
         "Feasibility & Risks",
         "Expected Contributions",
+        "Anticipated Paper Structure",
         "Open Questions for Feedback",
     ]:
         section_prompt = f"""Please fill in the {section} of the writeup. Some tips are provided below:
@@ -436,11 +442,11 @@ Before every paragraph, please include a brief description of what you plan to w
 Be sure to first name the file and use *SEARCH/REPLACE* blocks to perform these edits.
 """
         coder_out = coder.run(section_prompt)
-        coder_out = coder.run(
-            refinement_prompt.format(section=section)
-            .replace(r"{{", "{")
-            .replace(r"}}", "}")
-        )
+        # coder_out = coder.run( # doesn't seem needed
+        #     refinement_prompt.format(section=section)
+        #     .replace(r"{{", "{")
+        #     .replace(r"}}", "}")
+        # )
     
     # ADD REFERENCES FROM INVESTIGATION TO `references.bib` BEFORE RELATED WORK IS FILLED
     init_references_prompt = """The `investigation.json` file contains the data objects gathered for the proposal and the planned data for the investigation if conducted.
@@ -505,6 +511,7 @@ First, re-think the Title if necessary. Keep this concise and descriptive of the
         "Proposed Investigation",
         "Feasibility & Risks",
         "Expected Contributions",
+        "Anticipated Paper Structure",
         "Open Questions for Feedback",
     ]:
         coder_out = coder.run(
