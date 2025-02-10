@@ -368,7 +368,7 @@ Review {i + 1}/{len(reviews)}:
 {json.dumps(r)}
 ```
 """
-    base_prompt = neurips_form + review_text
+    base_prompt = review_form + review_text
 
     llm_review, msg_history = get_response_from_llm(
         base_prompt,
