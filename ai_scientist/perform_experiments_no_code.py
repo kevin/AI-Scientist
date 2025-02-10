@@ -328,7 +328,7 @@ def perform_investigation(idea, folder_name, coder, client, client_model) -> boo
     
     # 3. have coder modify the notes.txt file
     next_prompt = """The data objects needed for the proposal phase have been gathered.
-Please modify `notes.txt` with a description of the data objects gathered and how they support the investigation proposal.
+Please modify `notes.txt` with a description of the data objects gathered and how they support the investigation proposal. Include their citations.
 If any data objects were not found, discuss how this may impact the proposal.
 - Does this weaken the proposal?
 - Can the proposal still be justified without this data? (e.g., by making assumptions with a disclaimer)
