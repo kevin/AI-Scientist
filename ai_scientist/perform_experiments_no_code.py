@@ -277,34 +277,6 @@ def gather_data(idea, folder_name, client, client_model):
     #     return 1, next_prompt
 
 
-# # RUN PLOTTING
-# def run_plotting(folder_name, timeout=600):
-#     cwd = osp.abspath(folder_name)
-#     # LAUNCH COMMAND
-#     command = [
-#         "python",
-#         "plot.py",
-#     ]
-#     try:
-#         result = subprocess.run(
-#             command, cwd=cwd, stderr=subprocess.PIPE, text=True, timeout=timeout
-#         )
-
-#         if result.stderr:
-#             print(result.stderr, file=sys.stderr)
-
-#         if result.returncode != 0:
-#             print(f"Plotting failed with return code {result.returncode}")
-#             next_prompt = f"Plotting failed with the following error {result.stderr}"
-#         else:
-#             next_prompt = ""
-#         return result.returncode, next_prompt
-#     except TimeoutExpired:
-#         print(f"Plotting timed out after {timeout} seconds")
-#         next_prompt = f"Plotting timed out after {timeout} seconds"
-#         return 1, next_prompt
-
-
 # PERFORM INVESTIGATION
 def perform_investigation(idea, folder_name, coder, client, client_model) -> bool:
     ## RUN EXPERIMENT

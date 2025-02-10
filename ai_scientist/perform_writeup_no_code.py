@@ -50,17 +50,17 @@ If so, please modify the citation in template.tex to match the name in reference
 Please ensure that the figure is in the directory and that the filename is correct. Check the notes to see what each figure contains."""
             coder.run(prompt)
 
-    # Remove duplicate figures.
-    with open(writeup_file, "r", encoding="utf-8") as f:
-        tex_text = f.read()
-    referenced_figs = re.findall(r"\\includegraphics.*?{(.*?)}", tex_text)
-    duplicates = {x for x in referenced_figs if referenced_figs.count(x) > 1}
-    if duplicates:
-        for dup in duplicates:
-            print(f"Duplicate figure found: {dup}.")
-            prompt = f"""Duplicate figures found: {dup}. Ensure any figure is only included once.
-If duplicated, identify the best location for the figure and remove any other."""
-            coder.run(prompt)
+#     # Remove duplicate figures.
+#     with open(writeup_file, "r", encoding="utf-8") as f:
+#         tex_text = f.read()
+#     referenced_figs = re.findall(r"\\includegraphics.*?{(.*?)}", tex_text)
+#     duplicates = {x for x in referenced_figs if referenced_figs.count(x) > 1}
+#     if duplicates:
+#         for dup in duplicates:
+#             print(f"Duplicate figure found: {dup}.")
+#             prompt = f"""Duplicate figures found: {dup}. Ensure any figure is only included once.
+# If duplicated, identify the best location for the figure and remove any other."""
+#             coder.run(prompt)
 
     # Remove duplicate section headers.
     with open(writeup_file, "r", encoding="utf-8") as f:
@@ -181,7 +181,6 @@ Please make sure the abstract reads smoothly and is well-motivated. This should 
 }
 
 error_list = """- Unenclosed math symbols
-- Only reference figures that exist in our directory
 - LaTeX syntax errors
 - Numerical results that do not come from explicit experiments and logs
 - Repeatedly defined figure labels

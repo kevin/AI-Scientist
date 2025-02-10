@@ -1,3 +1,6 @@
+This is a fork of SakanaAI's AI-Scientist repo which implements an entirely new usecase: generating thorough research proposals for domains outside of coding ones.
+The below README applies entirely, but there are now variants of each script in the process with _no_code in their names.
+
 <h1 align="center">
   <a href="https://github.com/SakanaAI/AI-Scientist/blob/main/docs/logo_2.png">
     <img src="docs/logo_2.png" width="215" /></a><br>
