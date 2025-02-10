@@ -259,9 +259,6 @@ def do_idea(
 
         print_time()
 
-        print("-- TEMP; ENDING BEFORE REVIEW --")
-        return True
-
         print(f"*Starting Review*")
         ## REVIEW PAPER
         if writeup == "latex":
@@ -269,7 +266,7 @@ def do_idea(
                 paper_text = load_paper(f"{folder_name}/{idea['Name']}.pdf")
                 review = perform_review(
                     paper_text,
-                    model="gpt-4o-2024-05-13",
+                    model="gpt-4o-2024-08-06",
                     client=openai.OpenAI(),
                     num_reflections=5,
                     num_fs_examples=1,
@@ -295,7 +292,7 @@ def do_idea(
                 paper_text = load_paper(f"{folder_name}/{idea['Name']}_improved.pdf")
                 review = perform_review(
                     paper_text,
-                    model="gpt-4o-2024-05-13",
+                    model="gpt-4o-2024-08-06",
                     client=openai.OpenAI(),
                     num_reflections=5,
                     num_fs_examples=1,

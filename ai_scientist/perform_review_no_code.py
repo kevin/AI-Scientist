@@ -384,7 +384,7 @@ Review {i + 1}/{len(reviews)}:
 
 
 def perform_improvement(review, coder):
-    improvement_prompt = '''The following review has been created for your research paper:
+    improvement_prompt = '''The following review has been created for your research proposal:
 """
 {review}
 """

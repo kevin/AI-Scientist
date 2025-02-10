@@ -1,0 +1,11 @@
+[
+    {
+        "Name": "ca_swarm_control",
+        "Title": "Cellular Automata for Swarm Robotics Control: Enhancing Disaster Response and Environmental Monitoring",
+        "Description": "This investigation explores the use of Cellular Automata for controlling and coordinating swarm robotics with a focus on disaster response and environmental monitoring. The study will develop a CA-based framework for autonomous task allocation and coordination in robotic swarms, tailored for these specific applications. By simulating realistic disaster and environmental scenarios, the research aims to evaluate the efficiency, adaptability, and scalability of CA-driven swarm control compared to traditional methods. Addressing potential challenges such as communication constraints and real-time processing needs will be critical in enhancing the robustness and applicability of this approach.",
+        "Interestingness": 9,
+        "Feasibility": 8,
+        "Novelty": 8,
+        "novel": true
+    }
+]

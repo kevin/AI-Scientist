@@ -87,11 +87,11 @@ For option 3, suggest a new data object that might be easier to find in the lite
 The current data object is:
 ```json
 {{
-    "Description": "{data_description}"
-    "Source": "{source}"
-    "Purpose": "{purpose}"
-    "Query": "{query}"
-    "Citation": ""
+    "Description": "{data_description}",
+    "Source": "{source}",
+    "Purpose": "{purpose}",
+    "Query": "{query}",
+    "Citation": "",
     "Data": {{}}
 }}
 """
