@@ -169,11 +169,6 @@ Please make sure the abstract reads smoothly and is well-motivated. This should 
 - Long-term implications of the findings.
 - Distinguish between guaranteed outputs (e.g., datasets) and speculative outcomes (e.g., theories).
 """,
-    "Anticipated Paper Structure": """
-- Mock outline of a future paper (e.g., sections, key figures/tables).
-- Placeholders for results/discussion based on hypothesized findings.
-- Use this to show how the proposal aligns with publishable research. Keep it modular to accommodate unexpected results.
-""",
     "Open Questions for Feedback": """
 - List of unresolved issues to discuss with peers (e.g., methodological tradeoffs, ethical dilemmas).
 - Encourage collaboration. Frame questions to invite constructive critique.
@@ -426,7 +421,6 @@ Be sure to first name the file and use *SEARCH/REPLACE* blocks to perform these 
         "Proposed Investigation",
         "Feasibility & Risks",
         "Expected Contributions",
-        "Anticipated Paper Structure",
         "Open Questions for Feedback",
     ]:
         section_prompt = f"""Please fill in the {section} of the writeup. Some tips are provided below:
@@ -511,7 +505,6 @@ First, re-think the Title if necessary. Keep this concise and descriptive of the
         "Proposed Investigation",
         "Feasibility & Risks",
         "Expected Contributions",
-        "Anticipated Paper Structure",
         "Open Questions for Feedback",
     ]:
         coder_out = coder.run(

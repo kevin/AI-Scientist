@@ -195,7 +195,7 @@ def get_response_from_llm(
         new_msg_history = msg_history + [{"role": "user", "content": msg}]
         response = client.chat.completions.create(
             model=model,
-            reasoning_effort="high", # "low", "medium", "high". medium is default
+            # reasoning_effort="high", # "low", "medium", "high". medium is default
             messages=[
                 {"role": "user", "content": system_message},
                 *new_msg_history,
