@@ -159,6 +159,7 @@ Please make sure the abstract reads smoothly and is well-motivated. This should 
 - Methodology: Experimental design, data sources, tools, validation strategies.
 - Novelty of the approach (e.g., interdisciplinary methods, new datasets).
 - Balance specificity with flexibility. Include alternative pathways if initial plans fail.
+- This should be one of the longest sections. Be detailed, but not solely technical; focus on the big picture.
 """,
     "Feasibility & Risks": """
 - Resources/timeline needed (data availability, equipment, collaborators).
@@ -395,7 +396,7 @@ Ensure the citation is well-integrated into the text.'''
 
     aider_prompt = (
             aider_format.format(bibtex=bibtex_string, description=desc)
-            + """\n You must use \cite or \citet to reference papers, do not manually type out author names."""
+            + """\n You must use \\cite or \\citet to reference papers, do not manually type out author names. (e.g., "... as demonstrated by Chen et al.\\ \\cite{chen2023NCA} ..." is bad.)"""
     )
     return aider_prompt, False
 
@@ -434,7 +435,7 @@ Be sure to first name the file and use *SEARCH/REPLACE* blocks to perform these 
         section_prompt = f"""Please fill in the {section} of the writeup. Some tips are provided below:
 {per_section_tips[section]}
 
-Be sure to use \cite or \citet where relevant, referring to the works provided in the file.
+Be sure to use \\cite or \\citet where relevant, referring to the works provided in the file.
 Do not cite anything that is not already in `references.bib`. Do not add any new entries to this.
 
 In this pass, do not reference anything in later sections of the paper.
@@ -444,11 +445,11 @@ Before every paragraph, please include a brief description of what you plan to w
 Be sure to first name the file and use *SEARCH/REPLACE* blocks to perform these edits.
 """
         coder_out = coder.run(section_prompt)
-        # coder_out = coder.run( # doesn't seem needed
-        #     refinement_prompt.format(section=section)
-        #     .replace(r"{{", "{")
-        #     .replace(r"}}", "}")
-        # )
+        coder_out = coder.run(
+            refinement_prompt.format(section=section)
+            .replace(r"{{", "{")
+            .replace(r"}}", "}")
+        )
     
     # ADD REFERENCES FROM INVESTIGATION TO `references.bib` BEFORE RELATED WORK IS FILLED
     init_references_prompt = """The `investigation.json` file contains the data objects gathered for the proposal and the planned data for the investigation if conducted.
