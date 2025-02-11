@@ -120,6 +120,7 @@ In <JSON>, respond in JSON format with a new data object containing all the fiel
 Option 1: If you found relevant data in the papers, fill in the "Data" field with the relevant information formatted and the "Citation" field with the citation of the paper. You may output an array of citations if you used multiple papers to gather the data.
 - This is the only case when you should fill in the "Data" and "Citation" fields.
 - You may also make small changes to the other fields if the data found is slightly different from what was originally proposed but still fits the purpose.
+- Be sure the "Data" field is a valid JSON format, whether you leave it as a dictionary or use an array or single string for the data.
 Option 2: If you need to refine the query, fill in the "Query" field with a new query to search for papers and leave the other fields unchanged.
 Option 3: If you must change the data object description because the original data cannot be found or you deem it unfit, you may change any of the fields except "Data" and "Citation".
 

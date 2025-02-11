@@ -77,7 +77,10 @@ If duplicated, identify the best location for the section header and remove any 
     # Iteratively fix any LaTeX bugs
     for i in range(num_error_corrections):
         # Filter trivial bugs in chktex
-        check_output = os.popen(f"chktex {writeup_file} -q -n2 -n24 -n13 -n1").read()
+        check_output = os.popen(f"chktex {writeup_file} -q -n2 -n24 -n13 -n1").readlines()
+        # remove trailing newline characters that are added by chktex and throws off the LLM's search/replace blocks in Aider
+        check_output = '\n'.join([line.rstrip() for line in check_output])
+
         if check_output:
             prompt = f"""Please fix the following LaTeX errors in `template.tex` guided by the output of `chktek`:
 {check_output}.
@@ -498,6 +501,9 @@ Be sure to first name the file and use *SEARCH/REPLACE* blocks to perform these 
         .replace(r"}}", "}")
     )
 
+    # summarize previous messages to help fit within tier1 openai token limits9 (30k tokens per minute means a chat larger than 30k tokens can't be processed)
+    coder.done_messages = coder.summarizer.summarize_all(coder.done_messages)
+
     ## SECOND REFINEMENT LOOP
     coder.run(
         """Great job! Now that there is a complete draft of the entire paper, let's refine each section again.
@@ -524,68 +530,68 @@ First, re-think the Title if necessary. Keep this concise and descriptive of the
     generate_latex(coder, folder_name, f"{folder_name}/{idea['Name']}.pdf")
 
 
-if __name__ == "__main__":
-    from aider.coders import Coder
-    from aider.models import Model
-    from aider.io import InputOutput
-    import json
+# if __name__ == "__main__":
+#     from aider.coders import Coder
+#     from aider.models import Model
+#     from aider.io import InputOutput
+#     import json
 
-    parser = argparse.ArgumentParser(description="Perform writeup for a project")
-    parser.add_argument("--folder", type=str)
-    parser.add_argument("--no-writing", action="store_true", help="Only generate")
-    parser.add_argument(
-        "--model",
-        type=str,
-        default="gpt-4o-2024-05-13",
-        choices=AVAILABLE_LLMS,
-        help="Model to use for AI Scientist.",
-    )
-    parser.add_argument(
-        "--engine",
-        type=str,
-        default="semanticscholar",
-        choices=["semanticscholar", "openalex"],
-        help="Scholar engine to use.",
-    )
-    args = parser.parse_args()
-    client, client_model = create_client(args.model)
-    print("Make sure you cleaned the Aider logs if re-generating the writeup!")
-    folder_name = args.folder
-    idea_name = osp.basename(folder_name)
-    exp_file = osp.join(folder_name, "experiment.py")
-    vis_file = osp.join(folder_name, "plot.py")
-    notes = osp.join(folder_name, "notes.txt")
-    model = args.model
-    writeup_file = osp.join(folder_name, "latex", "template.tex")
-    ideas_file = osp.join(folder_name, "ideas.json")
-    with open(ideas_file, "r") as f:
-        ideas = json.load(f)
-    for idea in ideas:
-        if idea["Name"] in idea_name:
-            print(f"Found idea: {idea['Name']}")
-            break
-    if idea["Name"] not in idea_name:
-        raise ValueError(f"Idea {idea_name} not found")
-    fnames = [exp_file, writeup_file, notes]
-    io = InputOutput(yes=True, chat_history_file=f"{folder_name}/{idea_name}_aider.txt")
-    if args.model == "deepseek-coder-v2-0724":
-        main_model = Model("deepseek/deepseek-coder")
-    elif args.model == "llama3.1-405b":
-        main_model = Model("openrouter/meta-llama/llama-3.1-405b-instruct")
-    else:
-        main_model = Model(model)
-    coder = Coder.create(
-        main_model=main_model,
-        fnames=fnames,
-        io=io,
-        stream=False,
-        use_git=False,
-        edit_format="diff",
-    )
-    if args.no_writing:
-        generate_latex(coder, args.folder, f"{args.folder}/test.pdf")
-    else:
-        try:
-            perform_writeup(idea, folder_name, coder, client, client_model, engine=args.engine)
-        except Exception as e:
-            print(f"Failed to perform writeup: {e}")
+#     parser = argparse.ArgumentParser(description="Perform writeup for a project")
+#     parser.add_argument("--folder", type=str)
+#     parser.add_argument("--no-writing", action="store_true", help="Only generate")
+#     parser.add_argument(
+#         "--model",
+#         type=str,
+#         default="gpt-4o-2024-08-06",
+#         choices=AVAILABLE_LLMS,
+#         help="Model to use for AI Scientist.",
+#     )
+#     parser.add_argument(
+#         "--engine",
+#         type=str,
+#         default="semanticscholar",
+#         choices=["semanticscholar", "openalex"],
+#         help="Scholar engine to use.",
+#     )
+#     args = parser.parse_args()
+#     client, client_model = create_client(args.model)
+#     print("Make sure you cleaned the Aider logs if re-generating the writeup!")
+#     folder_name = args.folder
+#     idea_name = osp.basename(folder_name)
+#     exp_file = osp.join(folder_name, "experiment.py")
+#     vis_file = osp.join(folder_name, "plot.py")
+#     notes = osp.join(folder_name, "notes.txt")
+#     model = args.model
+#     writeup_file = osp.join(folder_name, "latex", "template.tex")
+#     ideas_file = osp.join(folder_name, "ideas.json")
+#     with open(ideas_file, "r") as f:
+#         ideas = json.load(f)
+#     for idea in ideas:
+#         if idea["Name"] in idea_name:
+#             print(f"Found idea: {idea['Name']}")
+#             break
+#     if idea["Name"] not in idea_name:
+#         raise ValueError(f"Idea {idea_name} not found")
+#     fnames = [exp_file, writeup_file, notes]
+#     io = InputOutput(yes=True, chat_history_file=f"{folder_name}/{idea_name}_aider.txt")
+#     if args.model == "deepseek-coder-v2-0724":
+#         main_model = Model("deepseek/deepseek-coder")
+#     elif args.model == "llama3.1-405b":
+#         main_model = Model("openrouter/meta-llama/llama-3.1-405b-instruct")
+#     else:
+#         main_model = Model(model)
+#     coder = Coder.create(
+#         main_model=main_model,
+#         fnames=fnames,
+#         io=io,
+#         stream=False,
+#         use_git=False,
+#         edit_format="diff",
+#     )
+#     if args.no_writing:
+#         generate_latex(coder, args.folder, f"{args.folder}/test.pdf")
+#     else:
+#         try:
+#             perform_writeup(idea, folder_name, coder, client, client_model, engine=args.engine)
+#         except Exception as e:
+#             print(f"Failed to perform writeup: {e}")
