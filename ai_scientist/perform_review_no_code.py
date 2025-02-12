@@ -101,16 +101,16 @@ In general, authors should be rewarded rather than punished for being up front a
   1: poor
 
 8. Overall: Please provide an "overall score" for this submission. Choices: 
-  10: Award quality: Exceptionally promosing proposal with potential for groundbreaking impact on one or more areas, with exceptionally strong evaluation, reproducibility, and resources, and no unaddressed ethical considerations.
-  9: Very Strong Accept: Exceptionially promising proposal with potential for groundbreaking impact on at least one area and excellent impact on multiple areas, with flawless evaluation, resources, and reproducibility, and no unaddressed ethical considerations.
-  8: Strong Accept: Very strong proposal with novel ideas, and potential for excellent impact on at least one area or high-to-excellent impact on multiple areas, with excellent evaluation, resources, and reproducibility, and no unaddressed ethical considerations.
-  7: Accept: Very solid proposal, with potential for high impact on at least one sub-area or moderate-to-high impact on more than one area, with good-to-excellent evaluation, resources, reproducibility, and no unaddressed ethical considerations.
-  6: Weak Accept: Solid proposal, potential for moderate-to-high impact paper, with no major concerns with respect to evaluation, resources, reproducibility, ethical considerations.
-  5: Borderline accept: Solid proposal where reasons to accept outweigh reasons to reject, e.g., limited evaluation. Please use sparingly.
-  4: Borderline reject: Solid proposal where reasons to reject, e.g., limited evaluation, outweigh reasons to accept, e.g., good evaluation. Please use sparingly.
-  3: Reject: For instance, a proposal with technical flaws, weak evaluation, inadequate reproducibility and incompletely addressed ethical considerations.
-  2: Strong Reject: For instance, a proposal with major technical flaws, and/or poor evaluation, limited impact, poor reproducibility and mostly unaddressed ethical considerations.
-  1: Very Strong Reject: For instance, a proposal with trivial results or unaddressed ethical considerations
+  10: Award quality: Outstanding proposal with potential for significant impact, strong evaluation plan, and clear consideration of reproducibility and ethics.
+  9: Very Strong Accept: Excellent proposal with novel ideas and potential for strong impact, thorough evaluation plan, and good handling of reproducibility and ethics.
+  8: Strong Accept: Very good proposal with interesting ideas and clear potential impact, solid evaluation approach, and appropriate consideration of key aspects.
+  7: Accept: Good proposal with promising ideas and reasonable potential impact, adequate evaluation plan and consideration of key aspects.
+  6: Weak Accept: Decent proposal with some interesting elements, though may have minor limitations in evaluation or impact potential.
+  5: Borderline Accept: Proposal shows promise but has some limitations that could be addressed.
+  4: Borderline Reject: Proposal has merit but needs significant improvements.
+  3: Reject: Proposal needs substantial revision to meet standards.
+  2: Strong Reject: Proposal has significant issues that need to be addressed.
+  1: Very Strong Reject: Proposal requires major revision in multiple areas.
 
 9. Confidence:  Please provide a "confidence score" for your assessment of this submission to indicate how confident you are in your evaluation. Choices:
   5: You are absolutely certain about your assessment. You are very familiar with the related work and checked the math/other details carefully.

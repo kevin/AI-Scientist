@@ -194,7 +194,7 @@ error_list = """- Unenclosed math symbols
 - Any relevant figures that have not yet been included in the text
 - Closing any \\begin{{figure}} with a \\end{{figure}} and \\begin{{table}} with a \\end{{table}}, etc.
 - Duplicate headers, e.g. duplicated \\section{{Introduction}} or \\end{{document}}
-- Unescaped symbols, e.g. shakespeare_char should be shakespeare\\_char in text
+- Unescaped symbols, e.g. shakespeare_char should be shakespeare\\_char in text, Yang & Chung should be Yang \& Chung
 - Incorrect closing of environments, e.g. </end{{figure}}> instead of \\end{{figure}}
 """
 
@@ -396,7 +396,7 @@ Ensure the citation is well-integrated into the text.'''
 
     aider_prompt = (
             aider_format.format(bibtex=bibtex_string, description=desc)
-            + """\n You must use \\cite or \\citet to reference papers, do not manually type out author names. (e.g., "... as demonstrated by Chen et al.\\ \\cite{chen2023NCA} ..." is bad.)"""
+            + """\n You must use \\cite or \\citet to reference papers, do not manually type out author names. (e.g., "... as demonstrated by \\cite{chen2023NCA} ..." instead of "Chen et al.")"""
     )
     return aider_prompt, False
 

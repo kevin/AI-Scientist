@@ -1,10 +1,10 @@
 [
     {
-        "Name": "digital_banking_financial_literacy",
-        "Title": "Evaluating and Enhancing Financial Literacy in Japan's Aging Population through Digital Banking",
-        "Description": "This study explores the impact of digital banking on financial literacy among Japan's elderly and tests interventions to enhance their digital skills. It will assess digital literacy levels, correlate them with digital banking usage, identify barriers, and implement pilot programs, such as workshops, to improve access. The research aims to provide actionable insights for banks to design inclusive services and inform policymakers on enhancing financial literacy initiatives.",
-        "Interestingness": 9,
-        "Feasibility": 7,
+        "Name": "digital_financial_literacy",
+        "Title": "Enhancing Digital Financial Literacy for Inclusive Banking in Japan",
+        "Description": "Investigate the current levels of digital financial literacy among various demographics in Japan, especially the aging population. Use surveys and interviews to gather data on user experiences and literacy levels. Assess the effectiveness of existing educational programs and propose new strategies in partnership with banks and educational institutions to improve digital literacy. The aim is to ensure all citizens can access and benefit from digital banking services, reducing financial exclusion.",
+        "Interestingness": 8,
+        "Feasibility": 8,
         "Novelty": 8,
         "novel": true
     }
