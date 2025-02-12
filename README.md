@@ -1,5 +1,10 @@
 This is a fork of SakanaAI's AI-Scientist repo which implements an entirely new usecase: generating thorough research proposals for domains outside of coding ones.
-The below README applies entirely, but there are now variants of each script in the process with _no_code in their names.
+The below README applies entirely, but there are now variants of each script in the process with `_no_code` in their names. Proposal templates are in the `templates_no_code` directory instead of `templates`.
+
+Example run (see `example_papers_no_code/digital_banking_financial_literacy/`):
+```bash
+python launch_scientist_no_code.py --model "gpt-4o-2024-08-06" --experiment japanese_banking --num-ideas 1 --improvement
+```
 
 <h1 align="center">
   <a href="https://github.com/SakanaAI/AI-Scientist/blob/main/docs/logo_2.png">
