@@ -1,5 +1,5 @@
 This is a fork of SakanaAI's AI-Scientist repo which implements an entirely new usecase: generating thorough research proposals for domains outside of coding ones.
-The below README applies entirely, but there are now variants of each script in the process with `_no_code` in their names. Proposal templates are in the `templates_no_code` directory instead of `templates`.
+The below README applies entirely, but there are now variants of each script in the process with `_no_code` in their names. These also include misc. fixes to minor existing errors, typos, etc., and also an updated, functional Dockerfile. Proposal templates are in the `templates_no_code` directory instead of `templates`.
 
 Example run (see `example_papers_no_code/digital_banking_financial_literacy/`):
 ```bash
