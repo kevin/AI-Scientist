@@ -274,7 +274,7 @@ def do_idea(
                     temperature=0.1,
                 )
                 # Store the review in separate review.txt file
-                with open(osp.join(folder_name, "review.txt"), "w") as f:
+                with open(osp.join(folder_name, "review.txt"), "w", encoding="utf-8") as f:
                     f.write(json.dumps(review, indent=4))
             except Exception as e:
                 print(f"Failed to perform review: {e}")
@@ -300,7 +300,7 @@ def do_idea(
                     temperature=0.1,
                 )
                 # Store the review in separate review.txt file
-                with open(osp.join(folder_name, "review_improved.txt"), "w") as f:
+                with open(osp.join(folder_name, "review_improved.txt"), "w", encoding="utf-8") as f:
                     f.write(json.dumps(review))
             except Exception as e:
                 print(f"Failed to perform improvement: {e}")
@@ -356,7 +356,7 @@ if __name__ == "__main__":
             engine=args.engine,
         )
 
-    with open(osp.join(base_dir, "ideas.json"), "w") as f:
+    with open(osp.join(base_dir, "ideas.json"), "w", encoding=8) as f:
         json.dump(ideas, f, indent=4)
 
     novel_ideas = [idea for idea in ideas if idea["novel"]]
