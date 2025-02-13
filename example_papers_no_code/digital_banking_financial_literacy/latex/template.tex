@@ -1,0 +1,235 @@
+\documentclass{article} % For LaTeX2e
+\usepackage{iclr2024_conference,times}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{titletoc}
+
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{cleveref}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\graphicspath{{../}} % To reference your generated figures, see below.
+\begin{filecontents}{references.bib}
+@article{kanapathipillai2023digital,
+  title={DIGITAL TRANSITION AT GOLDEN YEARS: UNCOVERING WHAT FUELS THE SHIFT TO DIGITAL BANKING SERVICES AMONG MALAYSIAN SENIORS},
+  author={Kanapathipillai, Kumaran and Sufian, Noraini binti Mohd and Anuar, Nor Haslina binti and Shamsudin, Nurul Athiera Binti Mohd},
+  journal={European Journal of Management and Marketing Studies},
+  year={2023}
+}
+
+@inproceedings{cunha2019web,
+  title={Web-based authoring of multimedia intervention programs for mobile devices: a case study on elderly digital literacy},
+  author={Cunha, B. C. R. and Rodrigues, K. R. H. and Zaine, I. and Scalco, L. and Viel, C. C. and Pimentel, M. G.},
+  booktitle={ACM Symposium on Applied Computing},
+  year={2019}
+}
+
+@article{choudhary2022addressing,
+  title={Addressing Digital Divide through Digital Literacy Training Programs: A Systematic Literature Review},
+  author={Choudhary, H. and Bansal, N.},
+  journal={Digital Education Review},
+  year={2022}
+}
+
+@article{yang2024experience,
+  title={Experience of the Elderly Participating in Digital Use Education},
+  author={Yang, H. and Chun, B. K.},
+  journal={The Korea Academy of Case Management},
+  year={2024}
+}
+
+@inproceedings{rodrigues2024praticas,
+  title={Práticas com smartphones para idosos - Um projeto de extensão do ICMC/USP},
+  author={Rodrigues, K. R. H. and Santos, S. S. D. and Gallego, D. and Martins, K. and Malpartida, K. F. C. and Verhalen, A. and de Deus, J. P.},
+  booktitle={Brazilian Symposium on Multimedia and the Web},
+  year={2024}
+}
+
+@article{lu2024aiscientist,
+  title={The {AI} {S}cientist: Towards Fully Automated Open-Ended Scientific Discovery},
+  author={Lu, Chris and Lu, Cong and Lange, Robert Tjarko and Foerster, Jakob and Clune, Jeff and Ha, David},
+  journal={arXiv preprint arXiv:2408.06292},
+  year={2024}
+}
+
+
+
+@Article{Kim2024SystematicRO,
+ author = {Seong-Won Kim and Seung-Hui Jeong and Min-Ye Jung},
+ booktitle = {Korean Society of Occupational Therapy},
+ journal = {Korean Society of Occupational Therapy},
+ title = {Systematic Review on the Effectiveness of Digital Literacy Interventions Among Older Adults},
+ year = {2024}
+}
+
+
+@Article{Jerman-Blazic2018LearningDS,
+ author = {B. Jerman-Blazic and Primoz Cigoj and Andrej Jerman-Blazic},
+ booktitle = {International Conference on Computer Supported Education},
+ pages = {222-229},
+ title = {Learning Digital Skils for Elderly People by using Touch Screen Technology and Learning Games: A Case Study},
+ year = {2018}
+}
+
+
+@Article{Kim2024SystematicRO,
+ author = {Seong-Won Kim and Seung-Hui Jeong and Min-Ye Jung},
+ booktitle = {Korean Society of Occupational Therapy},
+ journal = {Korean Society of Occupational Therapy},
+ title = {Systematic Review on the Effectiveness of Digital Literacy Interventions Among Older Adults},
+ year = {2024}
+}
+
+
+@Inproceedings{Msweli2021FinancialIO,
+ author = {N. Msweli and Tendani Mawela},
+ title = {Financial Inclusion of the Elderly: Exploring the Role of Mobile Banking Adoption},
+ year = {2021}
+}
+
+
+@Article{Rodríguez-Miranda2025ValidationOA,
+ author = {Francisco de Paula Rodríguez-Miranda and Rocio Illanes-Segura and Yolanda Ceada-Garrido and J. Infante-Moro},
+ booktitle = {Frontiers in Education},
+ journal = {Frontiers in Education},
+ title = {Validation of a scale based on the DigComp framework on internet navigation and cybersecurity in older adults},
+ year = {2025}
+}
+
+
+@Article{Kong2024ExploringTI,
+ author = {Haiyan Kong and Xinyu Wang},
+ booktitle = {Digital Health},
+ journal = {Digital Health},
+ title = {Exploring the influential factors and improvement strategies for digital information literacy among the elderly: An analysis based on integrated learning algorithms},
+ volume = {10},
+ year = {2024}
+}
+
+
+@Article{Miwa2017ChangingPO,
+ author = {M. Miwa and E. Nishina and M. Kurosu and Hideaki Takahashi and Y. Yaginuma and Y. Hirose and Toshio Akimitsu},
+ journal = {LIBRES: Library and Information Science Research Electronic Journal},
+ pages = {13},
+ title = {Changing Patterns of Perceived ICT Skill Levels of Elderly Learners in a Digital Literacy Training Course},
+ volume = {27},
+ year = {2017}
+}
+
+\end{filecontents}
+
+\title{Empowering Japan's Elderly: Bridging Financial Literacy and Digital Banking}
+
+\author{LLM\\
+Department of Computer Science\\
+University of LLMs\\
+}
+
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This research proposal explores how digital banking can enhance financial literacy among Japan's elderly, a demographic increasingly vital to the digital economy. The study addresses significant barriers such as performance expectancy and social influence that hinder digital banking adoption. By assessing current digital literacy levels and their correlation with banking usage, and implementing pilot programs like workshops, the research aims to provide actionable insights for banks and policymakers. The expected outcomes include improved digital literacy and banking usage, contributing to the financial independence and inclusion of Japan's aging population, ultimately supporting their integration into the digital economy.
+\end{abstract}
+
+\section{Research Question \& Motivation}
+\label{sec:intro}
+The central research question of this study is: How can digital banking be utilized to improve financial literacy among Japan's elderly? This inquiry is particularly relevant as Japan's population is rapidly aging, with a substantial portion being elderly. Enabling this demographic to effectively use digital banking services is crucial for their financial independence and inclusion in the digital economy.
+
+The difficulty lies in overcoming barriers such as performance expectancy, effort expectancy, and social influence, which impede the adoption of digital banking by the elderly. Despite the critical need for digital literacy, there is a notable lack of comprehensive studies focusing on Japan's elderly, making this a largely overlooked area \citep{Miwa2017ChangingPO}. Addressing this gap is vital for developing targeted interventions to enhance digital literacy and banking usage among the elderly.
+
+By tackling this research question, the study seeks to offer actionable insights for banks to create inclusive services and guide policymakers in improving financial literacy initiatives. The potential societal impact is significant, as it would enhance the financial well-being and autonomy of Japan's elderly, supporting their integration into the digital economy.
+
+\section{Related Work}
+\label{sec:related}
+This section reviews key studies on digital literacy and banking among the elderly, highlighting both achievements and limitations. Kanapathipillai et al. (2023) explored digital banking adoption among Malaysian seniors, identifying barriers like performance expectancy and social influence. Similarly, Cunha et al. (2019) and Choudhary & Bansal (2022) examined digital literacy programs, noting their successes in improving skills but also their limitations in addressing deeper behavioral barriers.
+
+Yang & Chun (2024) and Rodrigues et al. (2024) provided insights into digital education and smartphone practices for the elderly, respectively, emphasizing the importance of tailored interventions. However, these studies often overlook the specific needs of Japan's elderly population, particularly in integrating digital banking as a tool for financial literacy.
+
+The current research distinguishes itself by focusing on Japan's elderly and the unique challenges they face in digital banking adoption. While previous studies have laid the groundwork, they have not fully addressed the intersection of digital literacy and financial independence in this demographic. This gap underscores the need for targeted interventions and comprehensive studies, which this research aims to fulfill.
+
+\section{Proposed Investigation}
+\label{sec:investigation}
+The proposed investigation aims to test the hypothesis that improving digital literacy among Japan's elderly can significantly enhance their adoption and effective use of digital banking services. The research objectives are to assess current digital literacy levels, analyze the correlation between digital literacy and digital banking usage, and evaluate the effectiveness of pilot programs designed to improve digital skills.
+
+The study employs a mixed-methods approach, integrating quantitative surveys and qualitative interviews to gather comprehensive data. Surveys will establish a baseline of digital literacy levels and analyze their correlation with digital banking usage. Qualitative interviews will provide deeper insights into the barriers faced by the elderly. Data will be sourced from a representative sample of Japan's elderly population, ensuring diversity in terms of age, gender, and socioeconomic status.
+
+To ensure data reliability and validity, standardized assessment tools for digital literacy will be used, alongside validated survey instruments for measuring digital banking usage. Pilot programs, such as workshops, will be implemented to test interventions, with pre- and post-assessment to evaluate their effectiveness. Feedback from participants will be collected to refine the programs.
+
+The novelty of this approach lies in its interdisciplinary nature, combining insights from digital literacy, gerontology, and financial services. Innovative methods, such as digital storytelling and gamification, will be explored to enhance engagement and learning outcomes. By leveraging new datasets gathered from the investigation, the study aims to fill existing gaps in understanding the digital banking needs of the elderly.
+
+To operationalize the mixed-methods approach, detailed protocols for data collection and analysis will be developed, ensuring consistency and rigor. Ethical compliance will be prioritized by implementing advanced data protection measures and obtaining comprehensive informed consent. Strategies for effective participant engagement will include partnerships with community organizations and targeted outreach campaigns.
+
+If initial plans face challenges, alternative pathways include adjusting the scope of the pilot programs or exploring additional data sources, such as industry reports or international case studies, to supplement the findings. Flexibility in the research design will ensure that the study can adapt to unforeseen circumstances while maintaining its core objectives.
+
+\section{Feasibility \& Risks}
+\label{sec:feasibility}
+The proposed investigation requires resources such as access to survey tools, collaboration with local community centers for participant recruitment, and partnerships with financial institutions for data sharing. The timeline is estimated to be 12 months, with the first 3 months dedicated to survey design and participant recruitment, followed by 6 months of data collection and analysis, and the final 3 months for pilot program implementation and evaluation.
+
+A primary challenge is ensuring ethical compliance, particularly in handling sensitive data from elderly participants. Additionally, data scarcity may pose a risk, as obtaining a representative sample of Japan's elderly population can be difficult. Collaborating with local organizations and leveraging existing networks will be crucial to mitigate these challenges.
+
+To address ethical concerns, the study will adhere to strict data protection protocols, including encryption and anonymization of data, and obtain comprehensive informed consent from all participants. In case of data scarcity, alternative recruitment strategies, such as online outreach and partnerships with senior associations, will be employed. Regular reviews and adjustments to the research plan will ensure that the study remains on track and adapts to any unforeseen issues.
+
+Transparency in the research process is essential to maintain credibility and trust with stakeholders. By setting realistic goals and acknowledging potential risks, the study aims to provide valuable insights while ensuring the feasibility of the proposed investigation.
+
+\section{Expected Contributions}
+\label{sec:contributions}
+The study is expected to contribute theoretically by developing a framework that links digital literacy with financial independence among the elderly. This framework will serve as a foundation for future research on digital banking adoption and its impact on financial literacy, particularly in aging populations.
+
+Practically, the research will generate valuable datasets on digital literacy levels and banking usage among Japan's elderly, which can be utilized by policymakers and researchers. Additionally, the study will provide actionable insights for designing effective digital literacy programs and interventions tailored to the needs of the elderly.
+
+In the long term, the findings could influence policy decisions and banking practices, promoting greater financial inclusion and independence for the elderly. By addressing the digital divide, the study aims to enhance the quality of life for Japan's aging population and serve as a model for similar initiatives globally.
+
+While the study guarantees the creation of comprehensive datasets and practical insights, the development of new theoretical models and frameworks remains speculative, contingent on the findings and their broader applicability.
+
+\section{Anticipated Paper Structure}
+\label{sec:structure}
+The paper will begin with an Introduction, providing an overview of the research question and its significance. This will be followed by a Background section, detailing the current state of digital literacy and banking among the elderly in Japan, supported by relevant literature.
+
+The Methodology section will outline the mixed-methods approach, including survey design, data collection, and analysis techniques. A Data section will present the datasets generated, highlighting key statistics and demographics of the participants.
+
+The Results section will present findings on digital literacy levels, barriers to digital banking adoption, and the effectiveness of pilot programs. The Discussion section will interpret these results, exploring their implications for policy and practice, and comparing them with existing studies.
+
+The Conclusion will summarize the key contributions and suggest directions for future research. A Future Work section will propose potential studies to build on the findings, addressing any limitations encountered.
+
+Throughout the paper, key figures and tables will be included to illustrate findings, such as graphs of digital literacy levels and tables summarizing survey results and pilot program outcomes.
+
+\section{Open Questions for Feedback}
+\label{sec:questions}
+This section presents open questions and unresolved issues for feedback from peers and collaborators, encouraging constructive critique and collaboration to refine the research approach.
+
+One key area for discussion is the methodological tradeoffs in balancing quantitative and qualitative data collection. Are there alternative methods that could provide more comprehensive insights into digital literacy levels and banking usage among the elderly?
+
+We also seek input on ethical considerations, particularly in handling sensitive data from elderly participants. What additional measures can be implemented to ensure data protection and participant privacy beyond the current protocols?
+
+Feedback is welcome on potential challenges in participant recruitment and data scarcity. How can we effectively engage a representative sample of Japan's elderly population, and what strategies could mitigate the risk of insufficient data?
+
+Finally, we invite suggestions for improving the design and implementation of pilot programs aimed at enhancing digital skills. Are there innovative approaches or technologies that could be integrated to increase the effectiveness of these interventions?
+
+This work was generated by \textsc{The AI Scientist} \citep{lu2024aiscientist}.
+
+\bibliographystyle{iclr2024_conference}
+\bibliography{references}
+
+\end{document}

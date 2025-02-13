@@ -1,0 +1,109 @@
+[
+    {
+        "Description": "Current digital literacy levels among Japan's elderly population.",
+        "Exists": "No",
+        "Source": "Survey and assessment during the investigation.",
+        "Phase": "Investigation",
+        "Purpose": "To establish a baseline for digital literacy levels.",
+        "Query": "",
+        "Citation": "",
+        "Data": {}
+    },
+    {
+        "Description": "Correlation between digital literacy and digital banking usage among the elderly.",
+        "Exists": "No",
+        "Source": "Data analysis from survey results.",
+        "Phase": "Investigation",
+        "Purpose": "To understand the relationship between digital literacy and banking usage.",
+        "Query": "",
+        "Citation": "",
+        "Data": {}
+    },
+    {
+        "Description": "Barriers to digital banking adoption among elderly populations.",
+        "Exists": "Partial",
+        "Source": "Literature review and survey data.",
+        "Phase": "Proposal",
+        "Purpose": "To identify common barriers and inform intervention strategies.",
+        "Query": "Barriers to digital banking adoption among elderly",
+        "Citation": [
+            {
+                "title": "DIGITAL TRANSITION AT GOLDEN YEARS: UNCOVERING WHAT FUELS THE SHIFT TO DIGITAL BANKING SERVICES AMONG MALAYSIAN SENIORS",
+                "authors": [
+                    "Kumaran Kanapathipillai",
+                    "Noraini binti Mohd Sufian",
+                    "Nor Haslina binti Anuar",
+                    "Nurul Athiera Binti Mohd Shamsudin"
+                ],
+                "journal": "European Journal of Management and Marketing Studies",
+                "year": 2023
+            }
+        ],
+        "Data": {
+            "Barriers": [
+                "Performance expectancy",
+                "Effort expectancy",
+                "Price value",
+                "Habit",
+                "Social influence",
+                "Hedonic motivation"
+            ]
+        }
+    },
+    {
+        "Description": "Effectiveness of pilot programs (e.g., workshops) in improving digital skills.",
+        "Exists": "No",
+        "Source": "Pilot program results and feedback.",
+        "Phase": "Investigation",
+        "Purpose": "To evaluate the success of interventions in enhancing digital skills.",
+        "Query": "",
+        "Citation": "",
+        "Data": {}
+    },
+    {
+        "Description": "Examples of digital literacy programs for the elderly in various countries.",
+        "Exists": "Yes",
+        "Source": "Literature review on Semantic Scholar.",
+        "Phase": "Proposal",
+        "Purpose": "To provide evidence of interventions and guide program design.",
+        "Query": "Digital literacy programs for elderly",
+        "Citation": [
+            "Cunha, B. C. R., Rodrigues, K. R. H., Zaine, I., Scalco, L., Viel, C. C., & Pimentel, M. G. (2019). Web-based authoring of multimedia intervention programs for mobile devices: a case study on elderly digital literacy. ACM Symposium on Applied Computing.",
+            "Choudhary, H., & Bansal, N. (2022). Addressing Digital Divide through Digital Literacy Training Programs: A Systematic Literature Review. Digital Education Review.",
+            "Yang, H., & Chun, B. K. (2024). Experience of the Elderly Participating in Digital Use Education. The Korea Academy of Case Management.",
+            "Rodrigues, K. R. H., Santos, S. S. D., Gallego, D., Martins, K., Malpartida, K. F. C., Verhalen, A., & de Deus, J. P. (2024). Pr\u00e1ticas com smartphones para idosos - Um projeto de extens\u00e3o do ICMC/USP. Brazilian Symposium on Multimedia and the Web."
+        ],
+        "Data": [
+            {
+                "Program": "Web-based authoring of multimedia intervention programs for mobile devices",
+                "Country": "Not specified (General)",
+                "Outcome": "Increased learning and engagement for elderly participants through mobile reminders and tasks."
+            },
+            {
+                "Program": "Digital Literacy Training Programs (DLTPs)",
+                "Country": "Various Developed Countries",
+                "Outcome": "Improved digital competences and personal outcomes such as health and leisure."
+            },
+            {
+                "Program": "Digital Use Education for Elderly",
+                "Country": "South Korea",
+                "Outcome": "Improvement in daily life and social relationships, increased confidence."
+            },
+            {
+                "Program": "Digital literacy program for the elderly at ICMC/USP",
+                "Country": "Brazil",
+                "Outcome": "Facilitated teaching and learning of digital skills for elderly participants."
+            }
+        ]
+    },
+    {
+        "Description": "Challenges in digital literacy faced by Japan's elderly population.",
+        "Exists": "Yes",
+        "Source": "Academic papers and industry reports.",
+        "Phase": "Proposal",
+        "Purpose": "To understand barriers to digital banking adoption.",
+        "Query": "Digital literacy challenges Japan elderly",
+        "Citation": "",
+        "Data": "NOTE: Data was not found in the sources available."
+    }
+]

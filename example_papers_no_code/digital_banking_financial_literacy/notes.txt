@@ -1,0 +1,29 @@
+# Title: Evaluating and Enhancing Financial Literacy in Japan's Aging Population through Digital Banking
+# Description: This study explores the impact of digital banking on financial literacy among Japan's elderly and tests interventions to enhance their digital skills. It will assess digital literacy levels, correlate them with digital banking usage, identify barriers, and implement pilot programs, such as workshops, to improve access. The research aims to provide actionable insights for banks to design inclusive services and inform policymakers on enhancing financial literacy initiatives.
+
+# Data Objects for Proposal Phase:
+1. **Barriers to Digital Banking Adoption**: 
+   - Partial data was gathered from the literature, identifying barriers such as performance expectancy, effort expectancy, price value, habit, social influence, and hedonic motivation.
+   - Citation: Kanapathipillai, K., Sufian, N. M., Anuar, N. H., & Shamsudin, N. A. M. (2023). DIGITAL TRANSITION AT GOLDEN YEARS: UNCOVERING WHAT FUELS THE SHIFT TO DIGITAL BANKING SERVICES AMONG MALAYSIAN SENIORS. European Journal of Management and Marketing Studies.
+
+2. **Examples of Digital Literacy Programs**:
+   - Data was gathered on successful digital literacy programs for the elderly in various countries, providing evidence of effective interventions.
+   - Citations include works by Cunha et al. (2019), Choudhary & Bansal (2022), Yang & Chun (2024), and Rodrigues et al. (2024).
+
+3. **Challenges in Digital Literacy**:
+   - Data was not found in the available sources. This absence may weaken the proposal slightly, but the proposal can still be justified by making assumptions with a disclaimer about the need for further research to fill this gap.
+
+# Data Objects for Investigation Phase:
+1. **Current Digital Literacy Levels**:
+   - To be gathered through surveys and assessments during the investigation. This will establish a baseline for digital literacy levels among Japan's elderly.
+
+2. **Correlation between Digital Literacy and Digital Banking Usage**:
+   - To be analyzed from survey results to understand the relationship between digital literacy and banking usage.
+
+3. **Effectiveness of Pilot Programs**:
+   - To be evaluated through pilot program results and feedback, assessing the success of interventions in enhancing digital skills.
+
+# Implications:
+- The gathered data supports the proposal by highlighting existing barriers and successful interventions, providing a strong foundation for the investigation.
+- The lack of specific data on challenges in digital literacy among Japan's elderly is acknowledged, but the proposal remains robust with a transparent approach to addressing this limitation.
+- The investigation phase will focus on collecting primary data to fill existing gaps and provide comprehensive insights into enhancing financial literacy through digital banking.

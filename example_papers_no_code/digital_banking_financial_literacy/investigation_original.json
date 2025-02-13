@@ -1,0 +1,62 @@
+[
+    {
+        "Description": "Current digital literacy levels among Japan's elderly population.",
+        "Exists": "No",
+        "Source": "Survey and assessment during the investigation.",
+        "Phase": "Investigation",
+        "Purpose": "To establish a baseline for digital literacy levels.",
+        "Query": "",
+        "Citation": "",
+        "Data": {}
+    },
+    {
+        "Description": "Correlation between digital literacy and digital banking usage among the elderly.",
+        "Exists": "No",
+        "Source": "Data analysis from survey results.",
+        "Phase": "Investigation",
+        "Purpose": "To understand the relationship between digital literacy and banking usage.",
+        "Query": "",
+        "Citation": "",
+        "Data": {}
+    },
+    {
+        "Description": "Barriers to digital banking adoption among Japan's elderly.",
+        "Exists": "Partial",
+        "Source": "Literature review and survey data.",
+        "Phase": "Proposal",
+        "Purpose": "To identify common barriers and inform intervention strategies.",
+        "Query": "Barriers to digital banking adoption among elderly in Japan",
+        "Citation": "",
+        "Data": {}
+    },
+    {
+        "Description": "Effectiveness of pilot programs (e.g., workshops) in improving digital skills.",
+        "Exists": "No",
+        "Source": "Pilot program results and feedback.",
+        "Phase": "Investigation",
+        "Purpose": "To evaluate the success of interventions in enhancing digital skills.",
+        "Query": "",
+        "Citation": "",
+        "Data": {}
+    },
+    {
+        "Description": "Examples of successful digital literacy programs for the elderly in other countries.",
+        "Exists": "Yes",
+        "Source": "Literature review on Semantic Scholar.",
+        "Phase": "Proposal",
+        "Purpose": "To provide evidence of successful interventions and guide program design.",
+        "Query": "Successful digital literacy programs for elderly",
+        "Citation": "",
+        "Data": {}
+    },
+    {
+        "Description": "Statistics on digital banking usage among Japan's elderly population.",
+        "Exists": "Yes",
+        "Source": "Government reports and industry publications.",
+        "Phase": "Proposal",
+        "Purpose": "To highlight the current state of digital banking usage.",
+        "Query": "Digital banking usage statistics Japan elderly",
+        "Citation": "",
+        "Data": {}
+    }
+]

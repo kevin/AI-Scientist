@@ -1,9 +1,9 @@
 [
     {
-        "Name": "tech_integration_optimal_strategy",
-        "Title": "Optimizing Integration of AI and Robotics in Japan's Defense Sector",
-        "Description": "Explore the challenges and best practices for integrating AI and robotics into traditional defense mechanisms in Japan. The study will focus on organizational, cultural, and operational aspects, aiming to propose a strategic framework for effective integration. Data will be gathered through structured interviews with defense experts, analysis of existing integration case studies, and surveys of defense personnel. The goal is to identify practical recommendations for policymakers to enhance the adoption efficiency of these technologies in defense operations.",
-        "Interestingness": 8,
+        "Name": "ai_autonomy_defense",
+        "Title": "Exploring the Role of Autonomous Systems in Japan's Defense Strategies",
+        "Description": "This research focuses on the deployment of autonomous systems powered by AI in Japan's defense strategies. It will examine the current applications, challenges, and opportunities of autonomous technologies in military operations. The study will involve an analysis of existing literature, policy documents, and interviews with defense experts. Additionally, it will explore ethical considerations and public perceptions regarding the use of AI-driven autonomous systems in defense. The goal is to provide targeted policy recommendations to enhance the deployment and acceptance of autonomous technologies in Japan's defense framework.",
+        "Interestingness": 9,
         "Feasibility": 7,
         "Novelty": 8,
         "novel": true
