@@ -356,7 +356,7 @@ if __name__ == "__main__":
             engine=args.engine,
         )
 
-    with open(osp.join(base_dir, "ideas.json"), "w", encoding=8) as f:
+    with open(osp.join(base_dir, "ideas.json"), "w", encoding='utf-8') as f:
         json.dump(ideas, f, indent=4)
 
     novel_ideas = [idea for idea in ideas if idea["novel"]]

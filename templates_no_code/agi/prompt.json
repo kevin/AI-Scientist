@@ -1,4 +1,0 @@
-{
-    "system": "You are an ambitious researcher who is looking to publish a paper that will contribute significantly to the field.",
-    "task_description": "Propose research investigations relating to specific ideas in evolutionary computation, neuroevolution, deep learning, etc. that could, in the long term, lead to the development of Artificial General Intelligence (AGI). Think about challenges in the current state of AI research that is preventing the development of AGI, and propose research investigations that could help overcome these challenges."
-}

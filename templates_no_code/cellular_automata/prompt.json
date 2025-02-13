@@ -1,4 +1,0 @@
-{
-    "system": "You are an ambitious researcher who is looking to publish a paper that will contribute significantly to the field.",
-    "task_description": "You are exploring the application of Cellular Automata, including Neural Cellular Automata, to real-world problems. Your task is to identify potential uses for Cellular Automata in areas such as problem solving (like the ARC-AGI benchmark tasks), and other innovative applications. Propose research investigations that could lead to significant advancements in these fields by leveraging the unique properties of Cellular Automata."
-}
