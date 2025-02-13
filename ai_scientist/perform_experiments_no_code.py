@@ -185,9 +185,6 @@ def gather_data(idea, folder_name, client, client_model):
 
                 print(f"Round {cur_iter}/{MAX_ITERS}")
 
-                if len(msg_history) >= 4:
-                    msg_history = msg_history[2:] # drop old rounds to use less tokens, they shouldn't really be needed and help with token limit
-
                 # search query in Semantic Scholar, and let language model either generate the data object or refine the query
                 papers_str = get_papers(data_object["Query"])
                 text, msg_history = get_response_from_llm(
@@ -200,6 +197,16 @@ def gather_data(idea, folder_name, client, client_model):
                     model=client_model,
                     system_message=gather_data_system_prompt,
                     msg_history=msg_history
+                )
+
+                # # drop old rounds from context to use less tokens, they shouldn't really be needed and this will help with token limits
+                # if len(msg_history) >= 4:
+                #     msg_history = msg_history[2:]
+                # truncate papers_str in completed rounds, should not really be needed anymore and this will help with token limits
+                msg_history[-2] = gather_data_prompt.format(
+                    current_iter=cur_iter,
+                    num_iters=MAX_ITERS,
+                    last_query_results=(papers_str[:500] + "..." + papers_str[-500:]) if len(papers_str) > 1000 else papers_str
                 )
                 
                 json_output = extract_json_between_markers(text)

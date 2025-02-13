@@ -269,7 +269,7 @@ def do_idea(
                     model="gpt-4o-2024-08-06",
                     client=openai.OpenAI(),
                     num_reflections=5,
-                    num_fs_examples=1,
+                    num_fs_examples=0, # current fewshot examples are specific for ML papers, so for now we don't use them
                     num_reviews_ensemble=5,
                     temperature=0.1,
                 )
@@ -295,7 +295,7 @@ def do_idea(
                     model="gpt-4o-2024-08-06",
                     client=openai.OpenAI(),
                     num_reflections=5,
-                    num_fs_examples=1,
+                    num_fs_examples=0, # current fewshot examples are specific for ML papers, so for now we don't use them
                     num_reviews_ensemble=5,
                     temperature=0.1,
                 )
