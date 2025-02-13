@@ -502,7 +502,7 @@ Be sure to first name the file and use *SEARCH/REPLACE* blocks to perform these 
         .replace(r"}}", "}")
     )
 
-    # summarize previous messages to help fit within tier1 openai token limits9 (30k tokens per minute means a chat larger than 30k tokens can't be processed)
+    # summarize previous messages to help fit within tier1 openai token limits (30k tokens per minute means a chat larger than 30k tokens can't be processed)
     coder.done_messages = coder.summarizer.summarize_all(coder.done_messages)
 
     ## SECOND REFINEMENT LOOP

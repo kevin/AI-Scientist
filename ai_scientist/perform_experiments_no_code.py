@@ -189,9 +189,6 @@ def gather_data(idea, folder_name, client, client_model):
                     msg_history=msg_history
                 )
 
-                # # drop old rounds from context to use less tokens, they shouldn't really be needed and this will help with token limits
-                # if len(msg_history) >= 4:
-                #     msg_history = msg_history[2:]
                 # truncate papers_str in completed rounds, should not really be needed anymore and this will help with token limits
                 msg_history[-2]["msg"] = gather_data_prompt.format(
                     current_iter=cur_iter,
