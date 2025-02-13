@@ -1,0 +1,219 @@
+\documentclass{article} % For LaTeX2e
+\usepackage{iclr2024_conference,times}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{titletoc}
+
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{cleveref}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\graphicspath{{../}} % To reference your generated figures, see below.
+\begin{filecontents}{references.bib}
+@article{lu2024aiscientist,
+  title={The {AI} {S}cientist: Towards Fully Automated Open-Ended Scientific Discovery},
+  author={Lu, Chris and Lu, Cong and Lange, Robert Tjarko and Foerster, Jakob and Clune, Jeff and Ha, David},
+  journal={arXiv preprint arXiv:2408.06292},
+  year={2024}
+}
+
+@article{szabadfoldi2021military,
+  title={Artificial Intelligence in Military Application – Opportunities and Challenges},
+  author={Szabadföldi, I.},
+  journal={Journal of Military Science},
+  year={2021}
+}
+
+@article{pysarenko2020trends,
+  title={Global technological trends in the field of weapons and military equipment},
+  author={Pysarenko, T. and Kvasha, T.},
+  journal={Technical Expertise},
+  year={2020}
+}
+
+
+
+@Article{Lee2021ACS,
+ author = {Sangsoo Lee},
+ booktitle = {J-Institute},
+ journal = {J-Institute},
+ title = {A Case Study of AI DEFENSE Applications in Major Northeast Asian States and Strategies for Building a ROK’s AI-based National Defense System},
+ year = {2021}
+}
+
+
+@Article{Surywanshi2022ArtificialII,
+ author = {Ravina Surywanshi and Siddhesh Parab},
+ booktitle = {International Journal of Advanced Research in Science, Communication and Technology},
+ journal = {International Journal of Advanced Research in Science, Communication and Technology},
+ title = {Artificial Intelligence in Military Systems and their Influence on Sense of Security of Citizens},
+ year = {2022}
+}
+
+
+@Inproceedings{Anneken2025EthicalCF,
+ author = {Mathias Anneken and Nadia Burkart and Fabian Jeschke and Achim Kuwertz-Wolf and Almuth Mueller and Arne Schumann and Michael Teutsch},
+ title = {Ethical Considerations for the Military Use of Artificial Intelligence in Visual Reconnaissance},
+ year = {2025}
+}
+
+
+@Article{Hagos2022RecentAI,
+ author = {D. Hagos and D. Rawat},
+ booktitle = {Italian National Conference on Sensors},
+ journal = {Sensors (Basel, Switzerland)},
+ title = {Recent Advances in Artificial Intelligence and Tactical Autonomy: Current Status, Challenges, and Perspectives},
+ volume = {22},
+ year = {2022}
+}
+
+
+@Inproceedings{Pace2024BiasET,
+ author = {Teresa L. Pace and Bryan Ranes},
+ booktitle = {Defense + Commercial Sensing},
+ pages = {1305406 - 1305406-10},
+ title = {Bias, explainability, transparency, and trust for AI-enabled military systems},
+ volume = {13054},
+ year = {2024}
+}
+
+
+@Article{Pakholchuk2024MethodologicalCO,
+ author = {V. Pakholchuk and K. Horiacheva},
+ booktitle = {Challenges to National Defence in Contemporary Geopolitical Situation},
+ journal = {Challenges to National Defence in Contemporary Geopolitical Situation},
+ title = {Methodological Concepts of Appling AI into Military and Economic Capabilities Data Analysis},
+ year = {2024}
+}
+
+
+@Article{Sarjito2024EnhancingBA,
+ author = {Aris Sarjito and Nora Lelyana},
+ booktitle = {JISHUM Jurnal Ilmu Sosial dan Humaniora},
+ journal = {JISHUM Jurnal Ilmu Sosial dan Humaniora},
+ title = {Enhancing Battlefield Awareness: Integration of IoMT Sensors and Networks in National Defense Systems},
+ year = {2024}
+}
+
+\end{filecontents}
+
+\title{Strategic Horizons: AI-Driven Autonomy in Japan's Defense}
+
+\author{LLM\\
+Department of Computer Science\\
+University of LLMs\\
+}
+
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This research proposal investigates the integration of AI-driven autonomous systems into Japan's defense strategies, focusing on their transformative potential to enhance situational awareness, decision-making, and operational capabilities. The relevance of this study lies in addressing the complex technical, ethical, and societal challenges associated with deploying such technologies in military contexts. Our approach involves a comprehensive analysis of existing literature, policy documents, and expert interviews, complemented by surveys to gauge public perceptions. By identifying key challenges and opportunities, this research aims to provide actionable policy recommendations that facilitate the responsible deployment of autonomous systems, ultimately contributing to more informed and effective defense strategies in Japan.
+\end{abstract}
+
+\section{Research Question \& Motivation}
+\label{sec:intro}
+
+The central research question of this proposal is: How can AI-driven autonomous systems be effectively integrated into Japan's defense strategies to enhance operational capabilities while addressing ethical and societal concerns? This question is vital as technological advancements are rapidly reshaping military operations, making the integration of AI not only a technological challenge but also a strategic necessity for maintaining national security and competitive advantage.
+
+Integrating autonomous systems into defense frameworks is complex, involving technical, ethical, and societal challenges \citep{Hagos2022RecentAI}. Despite their potential benefits, comprehensive studies addressing these multifaceted challenges within Japan's defense strategies are lacking. This gap highlights the need for thorough investigation to develop informed policy recommendations guiding the deployment of these technologies.
+
+Successfully addressing this research question could have significant societal and scientific impacts. By providing actionable insights and policy recommendations, this study aims to facilitate the responsible deployment of autonomous systems in defense, ensuring technological advancements align with ethical standards and public acceptance. This could lead to enhanced national security, improved operational efficiency, and a deeper understanding of the societal implications of AI in military contexts.
+
+\section{Related Work}
+\label{sec:related}
+
+The integration of AI in military applications has been explored in various studies, highlighting both opportunities and challenges. Szabadföldi (2021) discusses the potential of AI to transform military operations, yet emphasizes the technical and ethical hurdles that remain \citep{szabadfoldi2021military}. Similarly, Pysarenko and Kvasha (2020) examine global technological trends, noting the rapid evolution of military equipment but lacking a focus on specific national strategies \citep{pysarenko2020trends}.
+
+Despite these insights, there is a notable gap in the literature regarding the integration of AI-powered autonomous systems specifically within Japan's defense strategies. Previous studies, such as those by Lee (2021) and Sarjito (2024), have addressed AI applications in Northeast Asia but have not delved into the unique challenges and opportunities present in Japan \citep{Lee2021ACS, Sarjito2024EnhancingBA}.
+
+Ethical considerations are another critical aspect often overlooked in existing research. While Surywanshi and Parab (2022) highlight the importance of aligning AI deployment with societal values, comprehensive frameworks that address both technical and ethical dimensions in Japan's context are scarce \citep{Surywanshi2022ArtificialII}. Anneken et al. (2025) further emphasize the need for ethical guidelines, yet their focus is not tailored to Japan's defense needs \citep{Anneken2025EthicalCF}.
+
+Our research aims to fill these gaps by providing a nuanced analysis of the integration of AI-driven autonomous systems in Japan's defense, considering both technological and ethical perspectives. This approach not only addresses the limitations of prior studies but also offers a comprehensive framework that can guide future policy and practice in this area.
+
+\section{Proposed Investigation}
+\label{sec:investigation}
+
+The primary hypothesis of this investigation is that AI-driven autonomous systems can significantly enhance Japan's defense capabilities while addressing ethical and societal concerns. The research objectives include identifying current applications, challenges, and opportunities for these technologies in military operations, as well as developing policy recommendations to guide their deployment.
+
+Our methodology employs a mixed-methods approach, integrating qualitative and quantitative data collection and analysis. We will conduct a comprehensive literature review and analyze policy documents to understand the current landscape of autonomous systems in defense. Expert interviews will provide insights into the challenges and opportunities associated with these technologies, while surveys will assess public perceptions and acceptance levels. This approach ensures a robust understanding of both technical and societal dimensions.
+
+The novelty of this investigation lies in its interdisciplinary nature, combining insights from military technology, ethics, and public policy. By leveraging new datasets from expert interviews and public surveys, this study aims to provide a holistic understanding of the role of autonomous systems in defense. This comprehensive approach is expected to yield novel insights and actionable recommendations.
+
+To ensure flexibility, the research design includes alternative pathways in case initial plans encounter obstacles. For instance, if access to certain data sources is restricted, we will explore alternative datasets or focus on case studies of other countries with similar defense strategies. This adaptability ensures the robustness and relevance of the research findings.
+
+Validation strategies will include triangulating data from multiple sources to ensure reliability and accuracy. By comparing findings from literature, expert interviews, and public surveys, we aim to construct a well-rounded perspective on the integration of AI in defense. This triangulation will help identify any discrepancies and refine our understanding of the challenges and opportunities.
+
+In summary, this investigation seeks to bridge the gap between technological potential and practical implementation of AI-driven autonomous systems in Japan's defense. By addressing both technical and ethical considerations, the study aims to provide a comprehensive framework that can guide future policy and practice in this area.
+
+\section{Feasibility \& Risks}
+\label{sec:feasibility}
+
+The proposed investigation will require access to a range of resources, including existing literature, policy documents, and expert networks for interviews. Collaborations with academic institutions and defense organizations are crucial to gain insights and access relevant data. The research timeline is estimated to be 18 months, allowing for comprehensive data collection, analysis, and the development of policy recommendations.
+
+Several technical and practical challenges are anticipated, such as data scarcity and ethical concerns related to AI use in defense. The lack of publicly available data on current applications of autonomous systems in Japan's military is a significant challenge. Additionally, ethical considerations regarding AI deployment in military contexts must be carefully addressed to ensure responsible research practices.
+
+To mitigate these risks, the research will employ a flexible approach, utilizing alternative data sources like case studies from other countries and expert opinions when direct data is unavailable. Ethical concerns will be addressed by adhering to established ethical guidelines and engaging with ethicists to ensure the research aligns with societal values and norms. Regular consultations with stakeholders will also help identify and address potential issues early in the research process.
+
+Transparency is key to managing expectations and ensuring realistic outcomes. By acknowledging potential limitations and focusing on achievable goals, this research aims to provide valuable insights and practical recommendations for integrating AI-driven autonomous systems into Japan's defense strategies.
+
+\section{Expected Contributions}
+\label{sec:contributions}
+
+Theoretically, this research aims to develop a novel framework for integrating AI-driven autonomous systems into national defense strategies, addressing technical, ethical, and societal dimensions. This comprehensive model is designed to be adaptable to various national contexts, offering new insights into the ethical considerations of AI in military applications and contributing to the broader discourse on AI ethics.
+
+Practically, the research will yield actionable policy recommendations for deploying autonomous systems in Japan's defense strategies, grounded in empirical data from expert interviews and public surveys. Additionally, the study will generate new datasets on public perceptions and expert opinions, serving as valuable resources for future research in this field.
+
+In the long term, the findings could significantly influence policy-making and strategic planning in defense sectors globally. By providing a robust framework and evidence-based recommendations, the study aims to facilitate the responsible integration of AI technologies in defense, potentially enhancing national security and operational efficiency. Furthermore, the research could stimulate further studies on the societal impacts of AI in military contexts, promoting a more informed and balanced approach to technology adoption.
+
+\section{Anticipated Paper Structure}
+\label{sec:structure}
+
+The paper will begin with an \textbf{Introduction} section, providing an overview of the research question, its relevance, and the objectives of the study. This will be followed by a \textbf{Background} section, reviewing existing literature on AI-driven autonomous systems in defense and highlighting gaps that this research aims to address.
+
+The \textbf{Methodology} section will detail the mixed-methods approach, including data collection and analysis techniques. This will be complemented by a \textbf{Data} section, presenting the datasets used in the study, such as expert interviews and public surveys, along with figures or tables summarizing key data points.
+
+The \textbf{Results} section will present the findings of the study, including statistical analyses and key insights from the data. This will be followed by a \textbf{Discussion} section, interpreting the results in the context of existing literature and exploring their implications for policy and practice.
+
+The paper will conclude with a \textbf{Conclusion} section, summarizing the main findings and contributions of the research. A \textbf{Future Work} section will outline potential areas for further research, considering the limitations of the current study and suggesting new directions for investigation.
+
+This structure is designed to be modular, allowing for adjustments based on unexpected results or new insights that may arise during the research process. By maintaining flexibility, the paper can effectively communicate the research's contributions and align with the standards of publishable academic work.
+
+\section{Open Questions for Feedback}
+\label{sec:questions}
+
+This section highlights unresolved issues and invites constructive feedback from peers to refine the research approach and address potential challenges.
+
+One key methodological tradeoff involves balancing the depth of qualitative insights from expert interviews with the breadth of quantitative data from public surveys. How can we ensure that both data types are effectively integrated to provide a comprehensive analysis? Additionally, are there alternative data collection methods that could enhance the robustness of our findings?
+
+Ethical dilemmas are inherent in the deployment of AI in defense. How can we ensure that our research framework adequately addresses these concerns while aligning with societal values? What ethical guidelines should be prioritized in the context of military applications of AI?
+
+We welcome collaboration with experts in military technology, ethics, and public policy to refine our proposed framework. Are there specific areas within the framework that require further development or adjustment? How can we ensure that our policy recommendations are both actionable and sensitive to the complexities of defense strategies?
+
+This work was generated by \textsc{The AI Scientist} \citep{lu2024aiscientist}.
+
+\bibliographystyle{iclr2024_conference}
+\bibliography{references}
+
+\end{document}

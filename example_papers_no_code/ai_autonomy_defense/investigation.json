@@ -1,0 +1,71 @@
+[
+    {
+        "Description": "Current applications of autonomous systems in Japan's military.",
+        "Exists": "Yes",
+        "Source": "Existing literature and defense reports.",
+        "Phase": "Proposal",
+        "Purpose": "To justify the relevance of the study by showing current usage.",
+        "Query": "Japanese defense autonomous systems AI applications",
+        "Citation": "",
+        "Data": "NOTE: Data was not found in the sources available."
+    },
+    {
+        "Description": "Challenges faced in deploying autonomous systems in military operations.",
+        "Exists": "Yes",
+        "Source": "Existing literature and expert interviews.",
+        "Phase": "Investigation",
+        "Purpose": "To identify and analyze challenges for the investigation.",
+        "Query": "Challenges in military autonomous systems deployment",
+        "Citation": "",
+        "Data": {}
+    },
+    {
+        "Description": "Opportunities for autonomous technologies in military operations.",
+        "Exists": "Yes",
+        "Source": "Existing literature and defense policy documents.",
+        "Phase": "Proposal",
+        "Purpose": "To highlight potential benefits and opportunities.",
+        "Query": "Opportunities for autonomous technologies in military",
+        "Citation": [
+            "Szabadf\u00f6ldi, I. (2021). Artificial Intelligence in Military Application \u2013 Opportunities and Challenges.",
+            "Pysarenko, T., Technical Expertise, Kvasha, T. (2020). Global technological trends in the field of weapons and military equipment."
+        ],
+        "Data": {
+            "Opportunities": [
+                "AI is expected to enhance situational awareness, decision-making support, and logistics in military operations.",
+                "Autonomous systems can lead to new capabilities in intelligence, surveillance, and operational planning.",
+                "Integration of AI and autonomous systems can transform military power and strategies, creating new forms of warfare."
+            ]
+        }
+    },
+    {
+        "Description": "Ethical considerations of using AI-driven autonomous systems in defense.",
+        "Exists": "Yes",
+        "Source": "Existing literature and ethical guidelines.",
+        "Phase": "Investigation",
+        "Purpose": "To explore ethical implications and inform policy recommendations.",
+        "Query": "Ethical considerations AI autonomous systems defense",
+        "Citation": "",
+        "Data": {}
+    },
+    {
+        "Description": "Public perceptions of AI-driven autonomous systems in defense.",
+        "Exists": "No",
+        "Source": "Surveys and interviews with the public.",
+        "Phase": "Investigation",
+        "Purpose": "To understand public opinion and acceptance levels.",
+        "Query": "",
+        "Citation": "",
+        "Data": {}
+    },
+    {
+        "Description": "Policy recommendations for enhancing deployment of autonomous technologies.",
+        "Exists": "No",
+        "Source": "Analysis of collected data and expert consultations.",
+        "Phase": "Investigation",
+        "Purpose": "To provide actionable recommendations for policymakers.",
+        "Query": "",
+        "Citation": "",
+        "Data": {}
+    }
+]

@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: template.aux
+Reallocating 'name_of_file' (item size: 1) to 20 items.
+The style file: iclr2024_conference.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Database file #1: references.bib
+Warning--empty booktitle in Anneken2025EthicalCF
+You've used 8 entries,
+            2773 wiz_defined-function locations,
+            636 strings with 6542 characters,
+and the built_in function-call counts, 3283 in all, are:
+= -- 269
+> -- 227
+< -- 6
++ -- 77
+- -- 69
+* -- 239
+:= -- 537
+add.period$ -- 24
+call.type$ -- 8
+change.case$ -- 47
+chr.to.int$ -- 8
+cite$ -- 17
+duplicate$ -- 157
+empty$ -- 251
+format.name$ -- 85
+if$ -- 668
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 8
+newline$ -- 48
+num.names$ -- 32
+pop$ -- 95
+preamble$ -- 1
+purify$ -- 39
+quote$ -- 0
+skip$ -- 129
+stack$ -- 0
+substring$ -- 16
+swap$ -- 8
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 88
+warning$ -- 1
+while$ -- 24
+width$ -- 0
+write$ -- 103
+(There was 1 warning)

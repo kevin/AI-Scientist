@@ -1,0 +1,63 @@
+\begin{thebibliography}{8}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Anneken et~al.(2025)Anneken, Burkart, Jeschke, Kuwertz-Wolf, Mueller,
+  Schumann, and Teutsch]{Anneken2025EthicalCF}
+Mathias Anneken, Nadia Burkart, Fabian Jeschke, Achim Kuwertz-Wolf, Almuth
+  Mueller, Arne Schumann, and Michael Teutsch.
+\newblock Ethical considerations for the military use of artificial
+  intelligence in visual reconnaissance.
+\newblock 2025.
+
+\bibitem[Hagos \& Rawat(2022)Hagos and Rawat]{Hagos2022RecentAI}
+D.~Hagos and D.~Rawat.
+\newblock Recent advances in artificial intelligence and tactical autonomy:
+  Current status, challenges, and perspectives.
+\newblock \emph{Sensors (Basel, Switzerland)}, 22, 2022.
+
+\bibitem[Lee(2021)]{Lee2021ACS}
+Sangsoo Lee.
+\newblock A case study of ai defense applications in major northeast asian
+  states and strategies for building a rok’s ai-based national defense
+  system.
+\newblock \emph{J-Institute}, 2021.
+
+\bibitem[Lu et~al.(2024)Lu, Lu, Lange, Foerster, Clune, and
+  Ha]{lu2024aiscientist}
+Chris Lu, Cong Lu, Robert~Tjarko Lange, Jakob Foerster, Jeff Clune, and David
+  Ha.
+\newblock The {AI} {S}cientist: Towards fully automated open-ended scientific
+  discovery.
+\newblock \emph{arXiv preprint arXiv:2408.06292}, 2024.
+
+\bibitem[Pysarenko \& Kvasha(2020)Pysarenko and Kvasha]{pysarenko2020trends}
+T.~Pysarenko and T.~Kvasha.
+\newblock Global technological trends in the field of weapons and military
+  equipment.
+\newblock \emph{Technical Expertise}, 2020.
+
+\bibitem[Sarjito \& Lelyana(2024)Sarjito and Lelyana]{Sarjito2024EnhancingBA}
+Aris Sarjito and Nora Lelyana.
+\newblock Enhancing battlefield awareness: Integration of iomt sensors and
+  networks in national defense systems.
+\newblock \emph{JISHUM Jurnal Ilmu Sosial dan Humaniora}, 2024.
+
+\bibitem[Surywanshi \& Parab(2022)Surywanshi and
+  Parab]{Surywanshi2022ArtificialII}
+Ravina Surywanshi and Siddhesh Parab.
+\newblock Artificial intelligence in military systems and their influence on
+  sense of security of citizens.
+\newblock \emph{International Journal of Advanced Research in Science,
+  Communication and Technology}, 2022.
+
+\bibitem[Szabadföldi(2021)]{szabadfoldi2021military}
+I.~Szabadföldi.
+\newblock Artificial intelligence in military application – opportunities and
+  challenges.
+\newblock \emph{Journal of Military Science}, 2021.
+
+\end{thebibliography}
