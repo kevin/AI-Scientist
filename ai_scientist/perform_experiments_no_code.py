@@ -11,19 +11,9 @@ from ai_scientist.generate_ideas_no_code import search_for_papers
 from ai_scientist.llm import get_response_from_llm, extract_json_between_markers
 
 MAX_ITERS = 4 # for failed queries to get a certain data object
-# MAX_RUNS = 5
 MAX_QUERIES = 10 # max num of different data objects to gather
 MAX_STDERR_OUTPUT = 1500
 
-# coder_prompt = """Your goal is to investigate the following idea: {title}.
-# The proposed investigation is as follows: {idea}.
-# You are given a total of up to {max_queries} research queries to complete the investigation. You do not need to use all {max_queries}.
-
-# First, plan the list of data objects you would like to gather. Modify and duplicate the example in `investigation.json` for each query, changing only the `"Description"` field to describe the contents of the `"Data"` object you would like to have.
-# For example, a data object can be table of yearly historical data, or simply a single fact about the topic.
-
-# We will use your changes to gather the data needed and populate each data object in `investigation.json` with the results.
-# """
 coder_prompt = """Your goal is to investigate the following idea: {title}.
 The proposed investigation is as follows: {idea}.
 You are given a total of up to {max_queries} research queries to complete the investigation. You do not need to use all {max_queries}.
